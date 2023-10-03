@@ -9,7 +9,7 @@ Connectify is a networking platform designed to help professionals efficiently m
 
 Given below are my contributions to the project.
 
-* **Code contributed**: 
+* **Code contributed**:
   * To be added soon
 
 * **Project management**:
