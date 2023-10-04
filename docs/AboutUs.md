@@ -28,14 +28,14 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 * Role: Team Lead
 * Responsibilities: UI
 
-### Johnny Doe
+### Gerald Ng
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/geraldngjx.png" width="200px">
 
-[[github](http://github.com/johndoe)] [[portfolio](team/nrehiew.md)]
+[[github](https://github.com/geraldngjx)]
+[[portfolio](team/geraldngjx.md)]
 
 * Role: Developer
-* Responsibilities: Data
 
 ### Jean Doe
 
