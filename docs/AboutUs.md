@@ -9,22 +9,21 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ## Project team
 
-### John Doe
+### Lim Wei Hern
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/nrehiew.png" width="200px">
 
-[[homepage](http://www.comp.nus.edu.sg/~damithch)]
-[[github](https://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
+[[github](https://github.com/nrehiew)]
+[[portfolio](team/nrehiew.md)]
 
-* Role: Project Advisor
+* Role: Integration
 
 ### Jane Doe
 
 <img src="images/johndoe.png" width="200px">
 
 [[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
+[[portfolio](team/nrehiew.md)]
 
 * Role: Team Lead
 * Responsibilities: UI
@@ -33,7 +32,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 <img src="images/johndoe.png" width="200px">
 
-[[github](http://github.com/johndoe)] [[portfolio](team/johndoe.md)]
+[[github](http://github.com/johndoe)] [[portfolio](team/nrehiew.md)]
 
 * Role: Developer
 * Responsibilities: Data
@@ -43,7 +42,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 <img src="images/johndoe.png" width="200px">
 
 [[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
+[[portfolio](team/nrehiew.md)]
 
 * Role: Developer
 * Responsibilities: Dev Ops + Threading
@@ -52,8 +51,8 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 <img src="images/tayian.png" width="200px">
 
-[[github](https://github.com/tayian)]
-[[portfolio](team/tayian.md)]
+[[github](http://github.com/johndoe)]
+[[portfolio](team/nrehiew.md)]
 
 * Role: Developer
 * Responsibilities: UI
