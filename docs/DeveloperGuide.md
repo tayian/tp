@@ -262,37 +262,37 @@ _{Explain here how the data archiving feature will be implemented}_
 * can type fast
 * prefers typing to mouse interactions
 * is reasonably comfortable using CLI apps
+* prioritize tools and solutions that streamline their workflow
 
-**Value proposition**: manage contacts faster than a typical mouse/GUI driven app
-
+**Value proposition**: Manage contacts faster than a typical mouse/GUI driven app and offers an efficient solution to manage, categorize, and tag contacts, thus enhancing networking experiences and providing quick access to contact information.
 
 ### User stories
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
-| Priority | As a …​                                    | I want to …​                     | So that I can…​                                                        |
-| -------- | ------------------------------------------ | ------------------------------ | ---------------------------------------------------------------------- |
-| `* * *`  | new user                                   | see usage instructions         | refer to instructions when I forget how to use the App                 |
-| `* * *`  | user                                       | add a new person               |                                                                        |
-| `* * *`  | user                                       | delete a person                | remove entries that I no longer need                                   |
-| `* * *`  | user                                       | find a person by name          | locate details of persons without having to go through the entire list |
-| `* *`    | user                                       | hide private contact details   | minimize chance of someone else seeing them by accident                |
-| `*`      | user with many persons in the address book | sort persons by name           | locate a person easily                                                 |
+| Priority | As a …​                                | I want to …​                 | So that I can…​                                                         |
+| -------- |----------------------------------------|------------------------------|-------------------------------------------------------------------------|
+| `* * *`  | new user                               | see usage instructions       | refer to instructions when I forget how to use the App                  |
+| `* * *`  | user                                   | add a new contact            |                                                                         |
+| `* * *`  | user                                   | delete a contact             | remove contacts that I no longer need                                   |
+| `* * *`  | user                                   | find a contact by name       | locate details of contacts without having to go through the entire list |
+| `* *`    | user                                   | hide private contact details | minimize chance of someone else seeing them by accident                 |
+| `*`      | user with many contacts in Connnectify | sort contacts by name        | locate a contact easily                                                 |
 
 *{More to be added}*
 
 ### Use cases
 
-(For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
+(For all use cases below, the **System** is the `Connectify` and the **Actor** is the `user`, unless specified otherwise)
 
 **Use case: Delete a person**
 
 **MSS**
 
 1.  User requests to list persons
-2.  AddressBook shows a list of persons
-3.  User requests to delete a specific person in the list
-4.  AddressBook deletes the person
+2.  Connectify shows a list of contacts
+3.  User requests to delete a specific contact in the list
+4.  Connectify deletes the contact
 
     Use case ends.
 
@@ -315,6 +315,9 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 1.  Should work on any _mainstream OS_ as long as it has Java `11` or above installed.
 2.  Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
 3.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
+4.  The application should be highly reliable, with minimal downtime and a low frequency of crashes or failures. It should be able to recover gracefully from unexpected errors and continue functioning without data loss.
+5.  The software should be designed with maintainability in mind, allowing for easy updates, bug fixes, and enhancements. This includes well-organized code, clear documentation, and modular architecture.
+6.  The Graphical User Interface (GUI) should be intuitive and responsive, and easy to use.
 
 *{More to be added}*
 
@@ -322,6 +325,14 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 * **Mainstream OS**: Windows, Linux, Unix, OS-X
 * **Private contact detail**: A contact detail that is not meant to be shared with others
+* **CLI**: Command Line Interface
+* **GUI**: Graphical User Interface
+* **UI**: User Interface
+* **API**: Application Programming Interface
+* **MSS**: Main Success Scenario
+* **Extension**: Alternative Scenario
+* **Actor**: A user or another system that interacts with the system under consideration
+* **System**: The software system under consideration
 
 --------------------------------------------------------------------------------------------------------------------
 

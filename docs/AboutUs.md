@@ -18,15 +18,14 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 * Role: Integration
 
-### Jane Doe
+### Peng Victor M X
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/victorpengmx.png" width="200px">
 
-[[github](http://github.com/johndoe)]
+[[github](http://github.com/victorpengmx)]
 [[portfolio](team/nrehiew.md)]
 
-* Role: Team Lead
-* Responsibilities: UI
+* Role: Developer
 
 ### Gerald Ng
 
@@ -37,15 +36,15 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 * Role: Developer
 
-### Jean Doe
+### Ryan Tan
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/ryantzr.png" width="200px">
 
-[[github](http://github.com/johndoe)]
-[[portfolio](team/nrehiew.md)]
+[[github](https://github.com/ryantzr1)]
+[[portfolio](team/ryantzr1.md)]
 
-* Role: Developer
-* Responsibilities: Dev Ops + Threading
+* Role: Product 
+* Responsibilities: In charge of UX and product functionality
 
 ### Ian Tay
 
