@@ -1,34 +1,12 @@
-# Max backend
+[![CI Status](https://github.com/AY2324S1-CS2103T-T15-4/tp/workflows/Java%20CI/badge.svg)](https://github.com/AY2324S1-CS2103T-T15-4/tp/actions)
+[![codecov](https://codecov.io/gh/AY2324S1-CS2103T-T15-4/tp/graph/badge.svg)](https://codecov.io/gh/AY2324S1-CS2103T-T15-4/tp)
 
-This is the backend for the Max project. It is a Flask application that provides a REST API for the frontend.
+![Ui](docs/images/Ui.png)
 
-## Installation
-1. Change into the project directory:
-
-    ```bash
-    cd yourproject
-    ```
-
-2. Create a virtual environment:
-
-    ```bash
-    python3 -m venv venv
-    ```
-3. Install the required packages:
-
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-Alternatively, you can use IDE such as PyCharm to install the required packages.
-
-
-## Usage
-1. First authorize with Google Cloud:
-    ```bash
-    gcloud auth application-default login
-    ```
-2. Start the Flask application:
-    ```bash
-    python main.py
-    ```
+* our **team project** for the course **CS2103T** in AY2023/2024 Semester 1.
+* This is based on the `AddressBook-Level3` project created by the [SE-EDU initiative](https://se-education.org).
+* The project is a desktop application used for organising contact and company details.
+  * It is **written in OOP fashion**.
+  * It comes with a **reasonable level of user and developer documentation**.
+* It is named `Connectify`.
+* For the detailed documentation of this project, see the **[Connectify Product Website](https://ay2324s1-cs2103t-t15-4.github.io/tp/)**.
