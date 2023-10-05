@@ -23,7 +23,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 <img src="images/victorpengmx.png" width="200px">
 
 [[github](http://github.com/victorpengmx)]
-[[portfolio](team/nrehiew.md)]
+[[portfolio](team/victorpengmx.md)]
 
 * Role: Developer
 
@@ -50,8 +50,8 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 <img src="images/tayian.png" width="200px">
 
-[[github](http://github.com/johndoe)]
-[[portfolio](team/nrehiew.md)]
+[[github](http://github.com/tayian)]
+[[portfolio](team/tayian.md)]
 
 * Role: Developer
 * Responsibilities: UI
