@@ -2,10 +2,11 @@ package connectify.model.company;
 
 import static connectify.commons.util.CollectionUtil.requireAllNonNull;
 
-import connectify.commons.util.ToStringBuilder;
-import connectify.model.person.Person;
 import java.util.ArrayList;
 import java.util.List;
+
+import connectify.commons.util.ToStringBuilder;
+import connectify.model.person.Person;
 
 /**
  * Represents a Company in the address book.
