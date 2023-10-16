@@ -35,7 +35,7 @@ public class Company {
      * @param address Address of company
      */
     public Company(String name, String industry, String location, String description, String website, String email,
-                   String phone, String address) {
+                   String phone, String address, List<Person> affiliatedPersons) {
         requireAllNonNull(name, industry, location, description, website, email, phone, address);
         this.name = name;
         this.industry = industry;
@@ -45,7 +45,7 @@ public class Company {
         this.email = email;
         this.phone = phone;
         this.address = address;
-        this.affiliatedPersons = new ArrayList<>();
+        this.affiliatedPersons = affiliatedPersons;
     }
 
     /**
@@ -194,6 +194,7 @@ public class Company {
                 .add("location", location)
                 .add("description", description)
                 .add("website", website)
+                .add("affiliated persons", affiliatedPersons)
                 .toString();
     }
 }
