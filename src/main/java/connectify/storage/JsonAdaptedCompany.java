@@ -1,9 +1,9 @@
 package connectify.storage;
 
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
-import java.util.List;
 
 import connectify.commons.exceptions.IllegalValueException;
 import connectify.model.company.Company;
