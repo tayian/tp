@@ -1,6 +1,10 @@
 package connectify.testutil;
 
 import connectify.model.company.Company;
+import connectify.model.person.Person;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A utility class to help with building Company objects.
@@ -16,6 +20,36 @@ public class CompanyBuilder {
 
     public static final String DEFAULT_PHONE = "12345678";
     public static final String DEFAULT_ADDRESS = "1600 Amphitheatre Parkway, Mountain View, CA 94043, USA";
+    public static final List<Person> DEFAULT_AFFILIATEDPERSONS = createDefaultAffiliatedPersons();
+
+    private static List<Person> createDefaultAffiliatedPersons() {
+        List<Person> defaultAffiliatedPersons = new ArrayList<>();
+
+        PersonBuilder personBuilder = new PersonBuilder();
+
+        // Create the first person with custom details
+        Person person1 = personBuilder
+                .withName("John Doe")
+                .withPhone("4567891011")
+                .withEmail("john.doe@example.com")
+                .withAddress("789 Elm St")
+                .build();
+
+        // Create the second person with custom details
+        Person person2 = personBuilder
+                .withName("Jane Lim")
+                .withPhone("987654321")
+                .withEmail("jane.limi@gmail.com")
+                .withAddress("342 Tampines Central 2, #15-42")
+                .build();
+
+        // Add persons to the list
+        defaultAffiliatedPersons.add(person1);
+        defaultAffiliatedPersons.add(person2);
+
+        return defaultAffiliatedPersons;
+    }
+
     private String name;
     private String industry;
     private String location;
@@ -24,6 +58,7 @@ public class CompanyBuilder {
     private String email;
     private String phone;
     private String address;
+    private List<Person> affiliatedPersons;
 
 
     /**
@@ -38,6 +73,7 @@ public class CompanyBuilder {
         this.email = DEFAULT_EMAIL;
         this.phone = DEFAULT_PHONE;
         this.address = DEFAULT_ADDRESS;
+        this.affiliatedPersons = DEFAULT_AFFILIATEDPERSONS;
     }
 
     /**
@@ -53,6 +89,7 @@ public class CompanyBuilder {
         this.email = companyToCopy.getEmail();
         this.phone = companyToCopy.getPhone();
         this.address = companyToCopy.getAddress();
+        this.affiliatedPersons = companyToCopy.getAffiliatedPersons();
     }
 
     /**
@@ -120,10 +157,18 @@ public class CompanyBuilder {
     }
 
     /**
+     * Sets the {@code AffiliatedPersons} of the {@code Company} that we are building.
+     */
+    public CompanyBuilder withAffiliatedPersons(List<Person> affiliatedPersons) {
+        this.affiliatedPersons = affiliatedPersons;
+        return this;
+    }
+
+    /**
      * Builds a company.
      * @return Company
      */
     public Company build() {
-        return new Company(name, industry, location, description, website, email, phone, address);
+        return new Company(name, industry, location, description, website, email, phone, address, affiliatedPersons);
     }
 }
