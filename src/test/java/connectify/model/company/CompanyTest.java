@@ -68,7 +68,7 @@ public class CompanyTest {
         String expected = Company.class.getCanonicalName() + "{name=" + COMPANY_1.getName() + ", phone="
                 + COMPANY_1.getPhone() + ", email=" + COMPANY_1.getEmail() + ", address=" + COMPANY_1.getAddress()
                 + ", industry=" + COMPANY_1.getIndustry() + ", location=" + COMPANY_1.getLocation()
-                + ", description=" + COMPANY_1.getDescription() + ", website=" + COMPANY_1.getWebsite() 
+                + ", description=" + COMPANY_1.getDescription() + ", website=" + COMPANY_1.getWebsite()
                 + ", affiliated persons=" + COMPANY_1.getAffiliatedPersons() + "}";
         assertEquals(expected, COMPANY_1.toString());
     }
