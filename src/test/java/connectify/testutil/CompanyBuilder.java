@@ -1,10 +1,10 @@
 package connectify.testutil;
 
-import connectify.model.company.Company;
-import connectify.model.person.Person;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import connectify.model.company.Company;
+import connectify.model.person.Person;
 
 /**
  * A utility class to help with building Company objects.
@@ -48,6 +48,22 @@ public class CompanyBuilder {
         this.affiliatedPersons = DEFAULT_AFFILIATEDPERSONS;
     }
 
+    /**
+     * Initializes the CompanyBuilder with the data of {@code companyToCopy}.
+     * @param companyToCopy Company to copy
+     */
+    public CompanyBuilder(Company companyToCopy) {
+        this.name = companyToCopy.getName();
+        this.industry = companyToCopy.getIndustry();
+        this.location = companyToCopy.getLocation();
+        this.description = companyToCopy.getDescription();
+        this.website = companyToCopy.getWebsite();
+        this.email = companyToCopy.getEmail();
+        this.phone = companyToCopy.getPhone();
+        this.address = companyToCopy.getAddress();
+        this.affiliatedPersons = companyToCopy.getAffiliatedPersons();
+    }
+
     private static List<Person> createDefaultAffiliatedPersons() {
         List<Person> defaultAffiliatedPersons = new ArrayList<>();
 
@@ -74,22 +90,6 @@ public class CompanyBuilder {
         defaultAffiliatedPersons.add(person2);
 
         return defaultAffiliatedPersons;
-    }
-
-    /**
-     * Initializes the CompanyBuilder with the data of {@code companyToCopy}.
-     * @param companyToCopy Company to copy
-     */
-    public CompanyBuilder(Company companyToCopy) {
-        this.name = companyToCopy.getName();
-        this.industry = companyToCopy.getIndustry();
-        this.location = companyToCopy.getLocation();
-        this.description = companyToCopy.getDescription();
-        this.website = companyToCopy.getWebsite();
-        this.email = companyToCopy.getEmail();
-        this.phone = companyToCopy.getPhone();
-        this.address = companyToCopy.getAddress();
-        this.affiliatedPersons = companyToCopy.getAffiliatedPersons();
     }
 
     /**
