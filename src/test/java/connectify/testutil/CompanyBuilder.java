@@ -22,6 +22,32 @@ public class CompanyBuilder {
     public static final String DEFAULT_ADDRESS = "1600 Amphitheatre Parkway, Mountain View, CA 94043, USA";
     public static final List<Person> DEFAULT_AFFILIATEDPERSONS = createDefaultAffiliatedPersons();
 
+    private String name;
+    private String industry;
+    private String location;
+    private String description;
+    private String website;
+    private String email;
+    private String phone;
+    private String address;
+    private List<Person> affiliatedPersons;
+
+
+    /**
+     * Creates a {@code CompanyBuilder} with the default details.
+     */
+    public CompanyBuilder() {
+        this.name = DEFAULT_NAME;
+        this.industry = DEFAULT_INDUSTRY;
+        this.location = DEFAULT_LOCATION;
+        this.description = DEFAULT_DESCRIPTION;
+        this.website = DEFAULT_WEBSITE;
+        this.email = DEFAULT_EMAIL;
+        this.phone = DEFAULT_PHONE;
+        this.address = DEFAULT_ADDRESS;
+        this.affiliatedPersons = DEFAULT_AFFILIATEDPERSONS;
+    }
+
     private static List<Person> createDefaultAffiliatedPersons() {
         List<Person> defaultAffiliatedPersons = new ArrayList<>();
 
@@ -50,35 +76,9 @@ public class CompanyBuilder {
         return defaultAffiliatedPersons;
     }
 
-    private String name;
-    private String industry;
-    private String location;
-    private String description;
-    private String website;
-    private String email;
-    private String phone;
-    private String address;
-    private List<Person> affiliatedPersons;
-
-
-    /**
-     * Creates a {@code CompanyBuilder} with the default details.
-     */
-    public CompanyBuilder() {
-        this.name = DEFAULT_NAME;
-        this.industry = DEFAULT_INDUSTRY;
-        this.location = DEFAULT_LOCATION;
-        this.description = DEFAULT_DESCRIPTION;
-        this.website = DEFAULT_WEBSITE;
-        this.email = DEFAULT_EMAIL;
-        this.phone = DEFAULT_PHONE;
-        this.address = DEFAULT_ADDRESS;
-        this.affiliatedPersons = DEFAULT_AFFILIATEDPERSONS;
-    }
-
     /**
      * Initializes the CompanyBuilder with the data of {@code companyToCopy}.
-     * @param companyToCopy
+     * @param companyToCopy Company to copy
      */
     public CompanyBuilder(Company companyToCopy) {
         this.name = companyToCopy.getName();
