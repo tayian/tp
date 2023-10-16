@@ -5,6 +5,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import connectify.commons.exceptions.IllegalValueException;
 import connectify.model.company.Company;
+import connectify.model.person.Person;
+
+import java.util.List;
 
 /**
  * A Jackson-friendly version of {@link Company}.
@@ -23,6 +26,7 @@ public class JsonAdaptedCompany {
     private final String email;
     private final String phone;
     private final String address;
+    private final List<Person> affiliatedPersons;
 
 
     /**
@@ -45,7 +49,8 @@ public class JsonAdaptedCompany {
                               @JsonProperty("website") String website,
                               @JsonProperty("email") String email,
                               @JsonProperty("phone") String phone,
-                              @JsonProperty("address") String address) {
+                              @JsonProperty("address") String address,
+                              @JsonProperty("address") List<Person> affiliatedPersons) {
         this.name = name;
         this.industry = industry;
         this.location = location;
@@ -54,6 +59,7 @@ public class JsonAdaptedCompany {
         this.email = email;
         this.phone = phone;
         this.address = address;
+        this.affiliatedPersons = affiliatedPersons;
     }
 
     /**
@@ -70,6 +76,7 @@ public class JsonAdaptedCompany {
         email = source.getEmail();
         phone = source.getPhone();
         address = source.getAddress();
+        affiliatedPersons = source.getAffiliatedPersons();
     }
 
     /**
@@ -109,6 +116,6 @@ public class JsonAdaptedCompany {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, "Address"));
         }
 
-        return new Company(name, industry, location, description, website, email, phone, address);
+        return new Company(name, industry, location, description, website, email, phone, address, affiliatedPersons);
     }
 }
