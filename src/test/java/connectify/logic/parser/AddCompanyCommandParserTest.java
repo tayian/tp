@@ -10,6 +10,8 @@ import connectify.logic.commands.AddCompanyCommand;
 import connectify.logic.parser.exceptions.ParseException;
 import connectify.model.company.Company;
 
+import java.util.ArrayList;
+
 public class AddCompanyCommandParserTest {
 
     private AddCompanyCommandParser parser;
@@ -27,7 +29,7 @@ public class AddCompanyCommandParserTest {
         AddCompanyCommand expectedCommand = new AddCompanyCommand(
                 new Company("Company A", "IT", "Singapore",
                         "Leading IT Solutions", "www.google.com",
-                        "hello@email.com", "12345678", "123 Main St"));
+                        "hello@email.com", "12345678", "123 Main St", new ArrayList<>()));
         assertEquals(parser.parse(userInput), expectedCommand);
     }
 
