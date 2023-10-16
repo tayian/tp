@@ -3,6 +3,9 @@ package connectify.model.company;
 import static connectify.commons.util.CollectionUtil.requireAllNonNull;
 
 import connectify.commons.util.ToStringBuilder;
+import connectify.model.person.Person;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Represents a Company in the address book.
@@ -17,6 +20,7 @@ public class Company {
     private String email;
     private String phone;
     private String address;
+    private List<Person> affiliatedPersons;
 
     /**
      * Constructor for Company.
@@ -40,6 +44,39 @@ public class Company {
         this.email = email;
         this.phone = phone;
         this.address = address;
+        this.affiliatedPersons = new ArrayList<>();
+    }
+
+    /**
+     * Sets the affiliated persons list.
+     * @param affiliatedPersons Affiliated persons list
+     */
+    public void setAffiliatedPersons(List<Person> affiliatedPersons) {
+        this.affiliatedPersons = affiliatedPersons;
+    }
+
+    /**
+     * Adds a person to the affiliated persons list.
+     * @param person Person to be added
+     */
+    public void addAffiliatedPerson(Person person) {
+        affiliatedPersons.add(person);
+    }
+
+    /**
+     * Removes a person from the affiliated persons list.
+     * @param person Person to be removed
+     */
+    public void removeAffiliatedPerson(Person person) {
+        affiliatedPersons.remove(person);
+    }
+
+    /**
+     * Returns an affiliated persons list.
+     * @return Affiliated persons list
+     */
+    public List<Person> getAffiliatedPersons() {
+        return affiliatedPersons;
     }
 
     /**
