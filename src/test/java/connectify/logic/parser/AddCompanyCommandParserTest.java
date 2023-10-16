@@ -1,5 +1,7 @@
 package connectify.logic.parser;
 
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -9,8 +11,6 @@ import org.junit.jupiter.api.Test;
 import connectify.logic.commands.AddCompanyCommand;
 import connectify.logic.parser.exceptions.ParseException;
 import connectify.model.company.Company;
-
-import java.util.ArrayList;
 
 public class AddCompanyCommandParserTest {
 
