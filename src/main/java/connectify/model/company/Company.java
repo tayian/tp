@@ -2,7 +2,6 @@ package connectify.model.company;
 
 import static connectify.commons.util.CollectionUtil.requireAllNonNull;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import connectify.commons.util.ToStringBuilder;
