@@ -10,7 +10,11 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import connectify.commons.exceptions.IllegalValueException;
-import connectify.model.person.*;
+import connectify.model.person.Person;
+import connectify.model.person.PersonAddress;
+import connectify.model.person.PersonEmail;
+import connectify.model.person.PersonName;
+import connectify.model.person.PersonPhone;
 import connectify.model.tag.Tag;
 
 /**
@@ -67,7 +71,8 @@ class JsonAdaptedPerson {
         }
 
         if (name == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, PersonName.class.getSimpleName()));
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
+                PersonName.class.getSimpleName()));
         }
         if (!PersonName.isValidName(name)) {
             throw new IllegalValueException(PersonName.MESSAGE_CONSTRAINTS);
@@ -75,7 +80,8 @@ class JsonAdaptedPerson {
         final PersonName modelName = new PersonName(name);
 
         if (phone == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, PersonPhone.class.getSimpleName()));
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
+                PersonPhone.class.getSimpleName()));
         }
         if (!PersonPhone.isValidPhone(phone)) {
             throw new IllegalValueException(PersonPhone.MESSAGE_CONSTRAINTS);
@@ -83,7 +89,8 @@ class JsonAdaptedPerson {
         final PersonPhone modelPersonPhone = new PersonPhone(phone);
 
         if (email == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, PersonEmail.class.getSimpleName()));
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
+                PersonEmail.class.getSimpleName()));
         }
         if (!PersonEmail.isValidEmail(email)) {
             throw new IllegalValueException(PersonEmail.MESSAGE_CONSTRAINTS);
@@ -91,7 +98,8 @@ class JsonAdaptedPerson {
         final PersonEmail modelPersonEmail = new PersonEmail(email);
 
         if (address == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, PersonAddress.class.getSimpleName()));
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
+                PersonAddress.class.getSimpleName()));
         }
         if (!PersonAddress.isValidAddress(address)) {
             throw new IllegalValueException(PersonAddress.MESSAGE_CONSTRAINTS);

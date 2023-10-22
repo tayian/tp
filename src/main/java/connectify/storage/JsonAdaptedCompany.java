@@ -8,8 +8,16 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import connectify.commons.exceptions.IllegalValueException;
-import connectify.model.company.*;
-import connectify.model.person.*;
+import connectify.model.company.Company;
+import connectify.model.company.CompanyAddress;
+import connectify.model.company.CompanyEmail;
+import connectify.model.company.CompanyIndustry;
+import connectify.model.company.CompanyName;
+import connectify.model.company.CompanyLocation;
+import connectify.model.company.CompanyPhone;
+import connectify.model.company.CompanyWebsite;
+import connectify.model.person.Person;
+import connectify.model.person.PersonList;
 
 /**
  * A Jackson-friendly version of {@link Company}.
