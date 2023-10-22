@@ -31,7 +31,8 @@ public class PersonAddressTest {
         // valid addresses
         assertTrue(PersonAddress.isValidAddress("Blk 456, Den Road, #01-355"));
         assertTrue(PersonAddress.isValidAddress("-")); // one character
-        assertTrue(PersonAddress.isValidAddress("Leng Inc; 1234 Market St; San Francisco CA 2349879; USA")); // long address
+        assertTrue(PersonAddress
+            .isValidAddress("Leng Inc; 1234 Market St; San Francisco CA 2349879; USA")); // long address
     }
 
     @Test
