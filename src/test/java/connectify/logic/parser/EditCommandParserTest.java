@@ -18,10 +18,10 @@ import connectify.logic.Messages;
 import connectify.logic.commands.CommandTestUtil;
 import connectify.logic.commands.EditCommand;
 import connectify.logic.commands.EditCommand.EditPersonDescriptor;
-import connectify.model.person.Address;
-import connectify.model.person.Email;
-import connectify.model.person.Name;
-import connectify.model.person.Phone;
+import connectify.model.person.PersonAddress;
+import connectify.model.person.PersonEmail;
+import connectify.model.person.PersonName;
+import connectify.model.person.PersonPhone;
 import connectify.model.tag.Tag;
 import connectify.testutil.EditPersonDescriptorBuilder;
 
@@ -64,19 +64,19 @@ public class EditCommandParserTest {
     @Test
     public void parse_invalidValue_failure() {
         assertParseFailure(parser, "1" + CommandTestUtil.INVALID_NAME_DESC,
-                Name.MESSAGE_CONSTRAINTS); // invalid name
+                PersonName.MESSAGE_CONSTRAINTS); // invalid name
         assertParseFailure(parser, "1" + CommandTestUtil.INVALID_PHONE_DESC,
-                Phone.MESSAGE_CONSTRAINTS); // invalid phone
+                PersonPhone.MESSAGE_CONSTRAINTS); // invalid phone
         assertParseFailure(parser, "1" + CommandTestUtil.INVALID_EMAIL_DESC,
-                Email.MESSAGE_CONSTRAINTS); // invalid email
+                PersonEmail.MESSAGE_CONSTRAINTS); // invalid email
         assertParseFailure(parser, "1" + CommandTestUtil.INVALID_ADDRESS_DESC,
-                Address.MESSAGE_CONSTRAINTS); // invalid address
+                PersonAddress.MESSAGE_CONSTRAINTS); // invalid address
         assertParseFailure(parser, "1" + CommandTestUtil.INVALID_TAG_DESC,
                 Tag.MESSAGE_CONSTRAINTS); // invalid tag
 
         // invalid phone followed by valid email
         assertParseFailure(parser, "1" + CommandTestUtil.INVALID_PHONE_DESC
-                + CommandTestUtil.EMAIL_DESC_AMY, Phone.MESSAGE_CONSTRAINTS);
+                + CommandTestUtil.EMAIL_DESC_AMY, PersonPhone.MESSAGE_CONSTRAINTS);
 
         // while parsing {@code PREFIX_TAG} alone will reset the tags of the {@code Person} being edited,
         // parsing it together with a valid tag results in error
@@ -90,7 +90,7 @@ public class EditCommandParserTest {
         // multiple invalid values, but only the first invalid value is captured
         assertParseFailure(parser, "1" + CommandTestUtil.INVALID_NAME_DESC
                 + CommandTestUtil.INVALID_EMAIL_DESC + CommandTestUtil.VALID_ADDRESS_AMY
-                + CommandTestUtil.VALID_PHONE_AMY, Name.MESSAGE_CONSTRAINTS);
+                + CommandTestUtil.VALID_PHONE_AMY, PersonName.MESSAGE_CONSTRAINTS);
     }
 
     @Test
