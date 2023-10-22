@@ -11,19 +11,19 @@ import connectify.model.person.PersonList;
  * Guarantees: details are present and not null, field values are validated, immutable.
  */
 public class Company extends Entity {
-    private String name;
-    private String industry;
-    private String location;
+    private CompanyName name;
+    private CompanyIndustry industry;
+    private CompanyLocation location;
     private String description;
-    private String website;
-    private String email;
-    private String phone;
-    private String address;
+    private CompanyWebsite website;
+    private CompanyEmail email;
+    private CompanyPhone phone;
+    private CompanyAddress address;
 
     private PersonList personList;
 
     /**
-     * Constructor for Company.
+     * Constructor for Company, with PersonList declared.
      * @param name Name of company
      * @param industry Industry of company
      * @param location Location of company
@@ -33,8 +33,9 @@ public class Company extends Entity {
      * @param phone Phone of company
      * @param address Address of company
      */
-    public Company(String name, String industry, String location, String description, String website, String email,
-                   String phone, String address, PersonList personList) {
+    public Company(CompanyName name, CompanyIndustry industry, CompanyLocation location,
+                   String description, CompanyWebsite website, CompanyEmail email,
+                   CompanyPhone phone, CompanyAddress address, PersonList personList) {
         requireAllNonNull(name, industry, location, description, website, email, phone, address);
         this.name = name;
         this.industry = industry;
@@ -48,7 +49,7 @@ public class Company extends Entity {
     }
 
     /**
-     * Constructor for Company.
+     * Alternative Constructor for Company, with empty PersonList.
      * @param name Name of company
      * @param industry Industry of company
      * @param location Location of company
@@ -58,8 +59,9 @@ public class Company extends Entity {
      * @param phone Phone of company
      * @param address Address of company
      */
-    public Company(String name, String industry, String location, String description, String website, String email,
-                   String phone, String address) {
+    public Company(CompanyName name, CompanyIndustry industry, CompanyLocation location,
+                   String description, CompanyWebsite website, CompanyEmail email,
+                   CompanyPhone phone, CompanyAddress address) {
         requireAllNonNull(name, industry, location, description, website, email, phone, address);
         this.name = name;
         this.industry = industry;
@@ -84,7 +86,7 @@ public class Company extends Entity {
      * Returns the name of the company.
      * @return Name of company
      */
-    public String getName() {
+    public CompanyName getName() {
         return name;
     }
 
@@ -92,7 +94,7 @@ public class Company extends Entity {
      * Returns the industry of the company.
      * @return Industry of company
      */
-    public String getIndustry() {
+    public CompanyIndustry getIndustry() {
         return industry;
     }
 
@@ -100,7 +102,7 @@ public class Company extends Entity {
      * Returns the location of the company.
      * @return Location of company
      */
-    public String getLocation() {
+    public CompanyLocation getLocation() {
         return location;
     }
 
@@ -116,7 +118,7 @@ public class Company extends Entity {
      * Returns the website of the company.
      * @return Website of company
      */
-    public String getWebsite() {
+    public CompanyWebsite getWebsite() {
         return website;
     }
 
@@ -124,15 +126,15 @@ public class Company extends Entity {
      * Returns the email of the company.
      * @return Email of company
      */
-    public String getEmail() {
+    public CompanyEmail getEmail() {
         return email;
     }
 
     /**
-     * Returns the phone of the company.
-     * @return Phone of company
+     * Returns the phone number of the company.
+     * @return Phone number of company
      */
-    public String getPhone() {
+    public CompanyPhone getPhone() {
         return phone;
     }
 
@@ -140,7 +142,7 @@ public class Company extends Entity {
      * Returns the address of the company.
      * @return Address of company
      */
-    public String getAddress() {
+    public CompanyAddress getAddress() {
         return address;
     }
 
@@ -201,4 +203,5 @@ public class Company extends Entity {
                 .add("people", personList);
         return string.toString();
     }
+
 }
