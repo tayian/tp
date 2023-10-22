@@ -5,11 +5,8 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import connectify.logic.commands.EditCommand.EditPersonDescriptor;
-import connectify.model.person.Address;
-import connectify.model.person.Email;
-import connectify.model.person.Name;
-import connectify.model.person.Person;
-import connectify.model.person.Phone;
+import connectify.model.person.*;
+import connectify.model.person.PersonEmail;
 import connectify.model.tag.Tag;
 
 /**
@@ -43,7 +40,7 @@ public class EditPersonDescriptorBuilder {
      * Sets the {@code Name} of the {@code EditPersonDescriptor} that we are building.
      */
     public EditPersonDescriptorBuilder withName(String name) {
-        descriptor.setName(new Name(name));
+        descriptor.setName(new PersonName(name));
         return this;
     }
 
@@ -51,7 +48,7 @@ public class EditPersonDescriptorBuilder {
      * Sets the {@code Phone} of the {@code EditPersonDescriptor} that we are building.
      */
     public EditPersonDescriptorBuilder withPhone(String phone) {
-        descriptor.setPhone(new Phone(phone));
+        descriptor.setPhone(new PersonPhone(phone));
         return this;
     }
 
@@ -59,7 +56,7 @@ public class EditPersonDescriptorBuilder {
      * Sets the {@code Email} of the {@code EditPersonDescriptor} that we are building.
      */
     public EditPersonDescriptorBuilder withEmail(String email) {
-        descriptor.setEmail(new Email(email));
+        descriptor.setEmail(new PersonEmail(email));
         return this;
     }
 
@@ -67,7 +64,7 @@ public class EditPersonDescriptorBuilder {
      * Sets the {@code Address} of the {@code EditPersonDescriptor} that we are building.
      */
     public EditPersonDescriptorBuilder withAddress(String address) {
-        descriptor.setAddress(new Address(address));
+        descriptor.setAddress(new PersonAddress(address));
         return this;
     }
 
