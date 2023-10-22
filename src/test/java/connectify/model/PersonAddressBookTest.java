@@ -50,7 +50,7 @@ public class PersonAddressBookTest {
 
     /**
      * Tests if resetting the data with duplicate persons throws a DuplicatePersonException.
-     */    
+     */
     @Test
     public void resetData_withDuplicatePersons_throwsDuplicatePersonException() {
         // Two persons with the same identity fields
@@ -64,7 +64,7 @@ public class PersonAddressBookTest {
 
     /**
      * Tests that {@code hasPerson} with a null argument throws a {@code NullPointerException}.
-     */    
+     */
     @Test
     public void hasPerson_nullPerson_throwsNullPointerException() {
         Assert.assertThrows(NullPointerException.class, () -> addressBook.hasPerson(null));
@@ -72,7 +72,7 @@ public class PersonAddressBookTest {
 
     /**
      * Tests that {@code hasPerson} returns false for a person not present in the address book.
-     */    
+     */
     @Test
     public void hasPerson_personNotInAddressBook_returnsFalse() {
         assertFalse(addressBook.hasPerson(TypicalPersons.ALICE));
@@ -80,7 +80,7 @@ public class PersonAddressBookTest {
 
     /**
      * Tests that {@code hasPerson} returns true for a person present in the address book.
-     */    
+     */
     @Test
     public void hasPerson_personInAddressBook_returnsTrue() {
         addressBook.addPerson(TypicalPersons.ALICE);
@@ -89,7 +89,7 @@ public class PersonAddressBookTest {
 
     /**
      * Tests that {@code hasPerson} returns true for a person with the same identity fields.
-     */    
+     */
     @Test
     public void hasPerson_personWithSameIdentityFieldsInAddressBook_returnsTrue() {
         addressBook.addPerson(TypicalPersons.ALICE);
@@ -100,7 +100,7 @@ public class PersonAddressBookTest {
 
     /**
      * Tests that modifying the list returned by {@code getPersonList} throws an {@code UnsupportedOperationException}.
-     */    
+     */
     @Test
     public void getPersonList_modifyList_throwsUnsupportedOperationException() {
         Assert.assertThrows(UnsupportedOperationException.class, () -> addressBook.getPersonList().remove(0));
@@ -108,7 +108,7 @@ public class PersonAddressBookTest {
 
     /**
      * Tests the correct output of the {@code toString} method of {@code AddressBook}.
-     */    
+     */
     @Test
     public void toStringMethod() {
         String expected = AddressBook.class.getCanonicalName() + "{persons=" + addressBook.getPersonList() + "}";
