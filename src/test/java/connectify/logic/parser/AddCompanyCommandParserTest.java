@@ -3,7 +3,6 @@ package connectify.logic.parser;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import connectify.model.company.CompanyLocation;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -12,8 +11,9 @@ import connectify.logic.parser.exceptions.ParseException;
 import connectify.model.company.Company;
 import connectify.model.company.CompanyAddress;
 import connectify.model.company.CompanyEmail;
-import connectify.model.company.CompanyName;
 import connectify.model.company.CompanyIndustry;
+import connectify.model.company.CompanyLocation;
+import connectify.model.company.CompanyName;
 import connectify.model.company.CompanyPhone;
 import connectify.model.company.CompanyWebsite;
 
