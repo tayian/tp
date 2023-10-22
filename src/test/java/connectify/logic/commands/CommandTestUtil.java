@@ -22,6 +22,7 @@ import connectify.model.company.CompanyNameContainsKeywordsPredicate;
 import connectify.model.person.NameContainsKeywordsPredicate;
 import connectify.model.person.Person;
 import connectify.testutil.EditPersonDescriptorBuilder;
+
 /**
  * Contains helper methods for testing commands.
  */
@@ -134,7 +135,7 @@ public class CommandTestUtil {
         assertTrue(targetIndex.getZeroBased() < model.getFilteredCompanyList().size());
 
         Company company = model.getFilteredCompanyList().get(targetIndex.getZeroBased());
-        final String[] splitName = company.getName().split("\\s+");
+        final String[] splitName = company.getName().fullName.split("\\s+");
         model.updateFilteredCompanyList(new CompanyNameContainsKeywordsPredicate(Arrays.asList(splitName[0])));
 
         assertEquals(1, model.getFilteredCompanyList().size());

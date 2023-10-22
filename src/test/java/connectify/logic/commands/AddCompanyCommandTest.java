@@ -25,6 +25,9 @@ import connectify.model.person.Person;
 import connectify.testutil.CompanyBuilder;
 import javafx.collections.ObservableList;
 
+/**
+ * Contains unit tests for AddCompanyCommand.
+ */
 public class AddCompanyCommandTest {
 
     @Test
@@ -61,11 +64,20 @@ public class AddCompanyCommandTest {
         AddCompanyCommand addTechCorpCommand = new AddCompanyCommand(techCorp);
         AddCompanyCommand addAlphaTechCommand = new AddCompanyCommand(alphaTech);
 
+        // same object -> returns true
         assertTrue(addTechCorpCommand.equals(addTechCorpCommand));
+
+        // same values -> returns true
         AddCompanyCommand addTechCorpCommandCopy = new AddCompanyCommand(techCorp);
         assertTrue(addTechCorpCommand.equals(addTechCorpCommandCopy));
+
+        // different types -> returns false
         assertFalse(addTechCorpCommand.equals(1));
+
+        // null -> returns false
         assertFalse(addTechCorpCommand.equals(null));
+
+        // different company -> returns false
         assertFalse(addTechCorpCommand.equals(addAlphaTechCommand));
     }
 
