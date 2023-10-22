@@ -28,7 +28,8 @@ public class Person extends Entity {
     /**
      * Every field must be present and not null.
      */
-    public Person(PersonName name, PersonPhone personPhone, PersonEmail personEmail, PersonAddress personAddress, Set<Tag> tags) {
+    public Person(PersonName name, PersonPhone personPhone, PersonEmail personEmail,
+                  PersonAddress personAddress, Set<Tag> tags) {
         CollectionUtil.requireAllNonNull(name, personPhone, personEmail, personAddress, tags);
         this.name = name;
         this.personPhone = personPhone;
