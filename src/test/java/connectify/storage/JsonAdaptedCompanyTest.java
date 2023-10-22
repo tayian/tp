@@ -34,6 +34,7 @@ public class JsonAdaptedCompanyTest {
         JsonAdaptedCompany company = new JsonAdaptedCompany(COMPANY_1);
         assertEquals(COMPANY_1, company.toModelType());
     }
+
     /**
      * Tests if a null name in the company throws an {@code IllegalValueException}.
      */
@@ -42,44 +43,48 @@ public class JsonAdaptedCompanyTest {
         JsonAdaptedCompany company =
                 new JsonAdaptedCompany(null, VALID_INDUSTRY, VALID_LOCATION, VALID_DESCRIPTION, VALID_WEBSITE,
                         VALID_EMAIL, VALID_PHONE, VALID_ADDRESS, VALID_PEOPLE);
-        String expectedMessage = String.format(JsonAdaptedCompany.MISSING_FIELD_MESSAGE_FORMAT, "Name");
+        String expectedMessage = String.format(JsonAdaptedCompany.MISSING_FIELD_MESSAGE_FORMAT, "CompanyName");
         Assert.assertThrows(IllegalValueException.class, expectedMessage, company::toModelType);
     }
+
     /**
-     * Tests if a null name in the company throws an {@code IllegalValueException}.
+     * Tests if a null phone number in the company throws an {@code IllegalValueException}.
      */
     @Test
     public void toModelType_nullPhone_throwsIllegalValueException() {
         JsonAdaptedCompany company =
                 new JsonAdaptedCompany(VALID_NAME, VALID_INDUSTRY, VALID_LOCATION, VALID_DESCRIPTION, VALID_WEBSITE,
                         VALID_EMAIL, null, VALID_ADDRESS, VALID_PEOPLE);
-        String expectedMessage = String.format(JsonAdaptedCompany.MISSING_FIELD_MESSAGE_FORMAT, "Phone");
+        String expectedMessage = String.format(JsonAdaptedCompany.MISSING_FIELD_MESSAGE_FORMAT, "CompanyPhone");
         Assert.assertThrows(IllegalValueException.class, expectedMessage, company::toModelType);
     }
+
     /**
-     * Tests if a null name in the company throws an {@code IllegalValueException}.
-     */
+     * Tests if a null industry in the company throws an {@code IllegalValueException}.
+     */    
     @Test
     public void toModelType_nullIndustry_throwsIllegalValueException() {
         JsonAdaptedCompany company =
                 new JsonAdaptedCompany(VALID_NAME, null, VALID_LOCATION, VALID_DESCRIPTION, VALID_WEBSITE,
                         VALID_EMAIL, VALID_PHONE, VALID_ADDRESS, VALID_PEOPLE);
-        String expectedMessage = String.format(JsonAdaptedCompany.MISSING_FIELD_MESSAGE_FORMAT, "Industry");
+        String expectedMessage = String.format(JsonAdaptedCompany.MISSING_FIELD_MESSAGE_FORMAT, "CompanyIndustry");
         Assert.assertThrows(IllegalValueException.class, expectedMessage, company::toModelType);
     }
+
     /**
-     * Tests if a null name in the company throws an {@code IllegalValueException}.
+     * Tests if a null location in the company throws an {@code IllegalValueException}.
      */
     @Test
     public void toModelType_nullLocation_throwsIllegalValueException() {
         JsonAdaptedCompany company =
                 new JsonAdaptedCompany(VALID_NAME, VALID_INDUSTRY, null, VALID_DESCRIPTION, VALID_WEBSITE,
                         VALID_EMAIL, VALID_PHONE, VALID_ADDRESS, VALID_PEOPLE);
-        String expectedMessage = String.format(JsonAdaptedCompany.MISSING_FIELD_MESSAGE_FORMAT, "Location");
+        String expectedMessage = String.format(JsonAdaptedCompany.MISSING_FIELD_MESSAGE_FORMAT, "CompanyLocation");
         Assert.assertThrows(IllegalValueException.class, expectedMessage, company::toModelType);
     }
+
     /**
-     * Tests if a null name in the company throws an {@code IllegalValueException}.
+     * Tests if a null description in the company throws an {@code IllegalValueException}.
      */
     @Test
     public void toModelType_nullDescription_throwsIllegalValueException() {
@@ -89,37 +94,40 @@ public class JsonAdaptedCompanyTest {
         String expectedMessage = String.format(JsonAdaptedCompany.MISSING_FIELD_MESSAGE_FORMAT, "Description");
         Assert.assertThrows(IllegalValueException.class, expectedMessage, company::toModelType);
     }
+
     /**
-     * Tests if a null name in the company throws an {@code IllegalValueException}.
+     * Tests if a null website in the company throws an {@code IllegalValueException}.
      */
     @Test
     public void toModelType_nullWebsite_throwsIllegalValueException() {
         JsonAdaptedCompany company =
                 new JsonAdaptedCompany(VALID_NAME, VALID_INDUSTRY, VALID_LOCATION, VALID_DESCRIPTION, null,
                         VALID_EMAIL, VALID_PHONE, VALID_ADDRESS, VALID_PEOPLE);
-        String expectedMessage = String.format(JsonAdaptedCompany.MISSING_FIELD_MESSAGE_FORMAT, "Website");
+        String expectedMessage = String.format(JsonAdaptedCompany.MISSING_FIELD_MESSAGE_FORMAT, "CompanyWebsite");
         Assert.assertThrows(IllegalValueException.class, expectedMessage, company::toModelType);
     }
+
     /**
-     * Tests if a null name in the company throws an {@code IllegalValueException}.
+     * Tests if a null email in the company throws an {@code IllegalValueException}.
      */
     @Test
     public void toModelType_nullEmail_throwsIllegalValueException() {
         JsonAdaptedCompany company =
                 new JsonAdaptedCompany(VALID_NAME, VALID_INDUSTRY, VALID_LOCATION, VALID_DESCRIPTION, VALID_WEBSITE,
                         null, VALID_PHONE, VALID_ADDRESS, VALID_PEOPLE);
-        String expectedMessage = String.format(JsonAdaptedCompany.MISSING_FIELD_MESSAGE_FORMAT, "Email");
+        String expectedMessage = String.format(JsonAdaptedCompany.MISSING_FIELD_MESSAGE_FORMAT, "CompanyEmail");
         Assert.assertThrows(IllegalValueException.class, expectedMessage, company::toModelType);
     }
+
     /**
-     * Tests if a null name in the company throws an {@code IllegalValueException}.
+     * Tests if a null address in the company throws an {@code IllegalValueException}.
      */
     @Test
     public void toModelType_nullAddress_throwsIllegalValueException() {
         JsonAdaptedCompany company =
                 new JsonAdaptedCompany(VALID_NAME, VALID_INDUSTRY, VALID_LOCATION, VALID_DESCRIPTION, VALID_WEBSITE,
                         VALID_EMAIL, VALID_PHONE, null, VALID_PEOPLE);
-        String expectedMessage = String.format(JsonAdaptedCompany.MISSING_FIELD_MESSAGE_FORMAT, "Address");
+        String expectedMessage = String.format(JsonAdaptedCompany.MISSING_FIELD_MESSAGE_FORMAT, "CompanyAddress");
         Assert.assertThrows(IllegalValueException.class, expectedMessage, company::toModelType);
     }
 }
