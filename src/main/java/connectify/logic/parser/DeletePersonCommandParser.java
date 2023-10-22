@@ -18,7 +18,7 @@ public class DeletePersonCommandParser implements Parser<DeletePersonCommand> {
      */
     public DeletePersonCommand parse(String args) throws ParseException {
         try {
-            Index index = ParserUtil.parseIndex(args);
+            Index index = ParserPersonUtil.parseIndex(args);
             return new DeletePersonCommand(index);
         } catch (ParseException pe) {
             throw new ParseException(

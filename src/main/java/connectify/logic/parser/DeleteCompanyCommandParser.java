@@ -18,7 +18,7 @@ public class DeleteCompanyCommandParser implements Parser<DeleteCompanyCommand> 
      */
     public DeleteCompanyCommand parse(String args) throws ParseException {
         try {
-            Index index = ParserUtil.parseIndex(args);
+            Index index = ParserPersonUtil.parseIndex(args);
             return new DeleteCompanyCommand(index);
         } catch (ParseException pe) {
             throw new ParseException(
