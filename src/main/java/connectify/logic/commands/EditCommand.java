@@ -18,14 +18,14 @@ import java.util.Set;
 import connectify.commons.core.index.Index;
 import connectify.commons.util.CollectionUtil;
 import connectify.commons.util.ToStringBuilder;
-import connectify.logic.Messages;
 import connectify.logic.commands.exceptions.CommandException;
+import connectify.logic.Messages;
 import connectify.model.Model;
-import connectify.model.person.Address;
-import connectify.model.person.Email;
-import connectify.model.person.Name;
 import connectify.model.person.Person;
-import connectify.model.person.Phone;
+import connectify.model.person.PersonAddress;
+import connectify.model.person.PersonEmail;
+import connectify.model.person.PersonName;
+import connectify.model.person.PersonPhone;
 import connectify.model.tag.Tag;
 
 /**
@@ -95,13 +95,13 @@ public class EditCommand extends Command {
     private static Person createEditedPerson(Person personToEdit, EditPersonDescriptor editPersonDescriptor) {
         assert personToEdit != null;
 
-        Name updatedName = editPersonDescriptor.getName().orElse(personToEdit.getName());
-        Phone updatedPhone = editPersonDescriptor.getPhone().orElse(personToEdit.getPhone());
-        Email updatedEmail = editPersonDescriptor.getEmail().orElse(personToEdit.getEmail());
-        Address updatedAddress = editPersonDescriptor.getAddress().orElse(personToEdit.getAddress());
+        PersonName updatedName = editPersonDescriptor.getName().orElse(personToEdit.getName());
+        PersonPhone updatedPersonPhone = editPersonDescriptor.getPhone().orElse(personToEdit.getPhone());
+        PersonEmail updatedPersonEmail = editPersonDescriptor.getEmail().orElse(personToEdit.getEmail());
+        PersonAddress updatedPersonAddress = editPersonDescriptor.getAddress().orElse(personToEdit.getAddress());
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
 
-        return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedTags);
+        return new Person(updatedName, updatedPersonPhone, updatedPersonEmail, updatedPersonAddress, updatedTags);
     }
 
     @Override
@@ -133,10 +133,10 @@ public class EditCommand extends Command {
      * corresponding field value of the person.
      */
     public static class EditPersonDescriptor {
-        private Name name;
-        private Phone phone;
-        private Email email;
-        private Address address;
+        private PersonName name;
+        private PersonPhone personPhone;
+        private PersonEmail personEmail;
+        private PersonAddress personAddress;
         private Set<Tag> tags;
 
         public EditPersonDescriptor() {}
@@ -147,9 +147,9 @@ public class EditCommand extends Command {
          */
         public EditPersonDescriptor(EditPersonDescriptor toCopy) {
             setName(toCopy.name);
-            setPhone(toCopy.phone);
-            setEmail(toCopy.email);
-            setAddress(toCopy.address);
+            setPhone(toCopy.personPhone);
+            setEmail(toCopy.personEmail);
+            setAddress(toCopy.personAddress);
             setTags(toCopy.tags);
         }
 
@@ -157,39 +157,39 @@ public class EditCommand extends Command {
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(name, phone, email, address, tags);
+            return CollectionUtil.isAnyNonNull(name, personPhone, personEmail, personAddress, tags);
         }
 
-        public void setName(Name name) {
+        public void setName(PersonName name) {
             this.name = name;
         }
 
-        public Optional<Name> getName() {
+        public Optional<PersonName> getName() {
             return Optional.ofNullable(name);
         }
 
-        public void setPhone(Phone phone) {
-            this.phone = phone;
+        public void setPhone(PersonPhone personPhone) {
+            this.personPhone = personPhone;
         }
 
-        public Optional<Phone> getPhone() {
-            return Optional.ofNullable(phone);
+        public Optional<PersonPhone> getPhone() {
+            return Optional.ofNullable(personPhone);
         }
 
-        public void setEmail(Email email) {
-            this.email = email;
+        public void setEmail(PersonEmail personEmail) {
+            this.personEmail = personEmail;
         }
 
-        public Optional<Email> getEmail() {
-            return Optional.ofNullable(email);
+        public Optional<PersonEmail> getEmail() {
+            return Optional.ofNullable(personEmail);
         }
 
-        public void setAddress(Address address) {
-            this.address = address;
+        public void setAddress(PersonAddress personAddress) {
+            this.personAddress = personAddress;
         }
 
-        public Optional<Address> getAddress() {
-            return Optional.ofNullable(address);
+        public Optional<PersonAddress> getAddress() {
+            return Optional.ofNullable(personAddress);
         }
 
         /**
@@ -222,9 +222,9 @@ public class EditCommand extends Command {
 
             EditPersonDescriptor otherEditPersonDescriptor = (EditPersonDescriptor) other;
             return Objects.equals(name, otherEditPersonDescriptor.name)
-                    && Objects.equals(phone, otherEditPersonDescriptor.phone)
-                    && Objects.equals(email, otherEditPersonDescriptor.email)
-                    && Objects.equals(address, otherEditPersonDescriptor.address)
+                    && Objects.equals(personPhone, otherEditPersonDescriptor.personPhone)
+                    && Objects.equals(personEmail, otherEditPersonDescriptor.personEmail)
+                    && Objects.equals(personAddress, otherEditPersonDescriptor.personAddress)
                     && Objects.equals(tags, otherEditPersonDescriptor.tags);
         }
 
@@ -232,9 +232,9 @@ public class EditCommand extends Command {
         public String toString() {
             return new ToStringBuilder(this)
                     .add("name", name)
-                    .add("phone", phone)
-                    .add("email", email)
-                    .add("address", address)
+                    .add("phone", personPhone)
+                    .add("email", personEmail)
+                    .add("address", personAddress)
                     .add("tags", tags)
                     .toString();
         }
