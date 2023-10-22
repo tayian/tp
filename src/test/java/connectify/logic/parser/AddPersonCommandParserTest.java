@@ -8,12 +8,16 @@ import static connectify.logic.parser.CliSyntax.PREFIX_PHONE;
 import static connectify.testutil.TypicalPersons.AMY;
 import static connectify.testutil.TypicalPersons.BOB;
 
-import connectify.model.person.*;
 import org.junit.jupiter.api.Test;
 
 import connectify.logic.Messages;
 import connectify.logic.commands.AddPersonCommand;
 import connectify.logic.commands.CommandTestUtil;
+import connectify.model.person.Person;
+import connectify.model.person.PersonAddress;
+import connectify.model.person.PersonEmail;
+import connectify.model.person.PersonName;
+import connectify.model.person.PersonPhone;
 import connectify.model.tag.Tag;
 import connectify.testutil.PersonBuilder;
 
@@ -169,7 +173,8 @@ public class AddPersonCommandParserTest {
         CommandParserTestUtil.assertParseFailure(parser, CommandTestUtil.NAME_DESC_BOB
                 + CommandTestUtil.PHONE_DESC_BOB + CommandTestUtil.EMAIL_DESC_BOB
                 + CommandTestUtil.INVALID_ADDRESS_DESC
-                + CommandTestUtil.TAG_DESC_HUSBAND + CommandTestUtil.TAG_DESC_FRIEND, PersonAddress.MESSAGE_CONSTRAINTS);
+                + CommandTestUtil.TAG_DESC_HUSBAND + CommandTestUtil.TAG_DESC_FRIEND,
+                                                 PersonAddress.MESSAGE_CONSTRAINTS);
 
         // invalid tag
         CommandParserTestUtil.assertParseFailure(parser, CommandTestUtil.NAME_DESC_BOB
