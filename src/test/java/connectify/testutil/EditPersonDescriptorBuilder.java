@@ -5,8 +5,11 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import connectify.logic.commands.EditCommand.EditPersonDescriptor;
-import connectify.model.person.*;
+import connectify.model.person.Person;
+import connectify.model.person.PersonAddress;
 import connectify.model.person.PersonEmail;
+import connectify.model.person.PersonName;
+import connectify.model.person.PersonPhone;
 import connectify.model.tag.Tag;
 
 /**

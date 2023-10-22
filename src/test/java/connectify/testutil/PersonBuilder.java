@@ -3,8 +3,11 @@ package connectify.testutil;
 import java.util.HashSet;
 import java.util.Set;
 
-import connectify.model.person.*;
+import connectify.model.person.Person;
+import connectify.model.person.PersonAddress;
 import connectify.model.person.PersonEmail;
+import connectify.model.person.PersonName;
+import connectify.model.person.PersonPhone;
 import connectify.model.tag.Tag;
 import connectify.model.util.SampleDataUtil;
 

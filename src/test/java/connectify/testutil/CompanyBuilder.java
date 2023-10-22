@@ -1,6 +1,13 @@
 package connectify.testutil;
 
-import connectify.model.company.*;
+import connectify.model.company.Company;
+import connectify.model.company.CompanyAddress;
+import connectify.model.company.CompanyEmail;
+import connectify.model.company.CompanyIndustry;
+import connectify.model.company.CompanyLocation;
+import connectify.model.company.CompanyName;
+import connectify.model.company.CompanyPhone;
+import connectify.model.company.CompanyWebsite;
 import connectify.model.person.PersonList;
 
 /**
