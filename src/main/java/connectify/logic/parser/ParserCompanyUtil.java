@@ -1,11 +1,17 @@
 package connectify.logic.parser;
 
+import static java.util.Objects.requireNonNull;
+
 import connectify.commons.core.index.Index;
 import connectify.commons.util.StringUtil;
 import connectify.logic.parser.exceptions.ParseException;
-import connectify.model.company.*;
-
-import static java.util.Objects.requireNonNull;
+import connectify.model.company.CompanyAddress;
+import connectify.model.company.CompanyEmail;
+import connectify.model.company.CompanyIndustry;
+import connectify.model.company.CompanyLocation;
+import connectify.model.company.CompanyName;
+import connectify.model.company.CompanyPhone;
+import connectify.model.company.CompanyWebsite;
 
 /**
  * Contains utility methods used for parsing strings in the various *Parser classes.

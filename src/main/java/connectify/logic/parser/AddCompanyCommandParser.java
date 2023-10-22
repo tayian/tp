@@ -6,7 +6,14 @@ import java.util.stream.Stream;
 
 import connectify.logic.commands.AddCompanyCommand;
 import connectify.logic.parser.exceptions.ParseException;
-import connectify.model.company.*;
+import connectify.model.company.Company;
+import connectify.model.company.CompanyAddress;
+import connectify.model.company.CompanyEmail;
+import connectify.model.company.CompanyIndustry;
+import connectify.model.company.CompanyLocation;
+import connectify.model.company.CompanyName;
+import connectify.model.company.CompanyPhone;
+import connectify.model.company.CompanyWebsite;
 
 /**
  * Parses input arguments and creates a new AddCompanyCommand object
@@ -37,8 +44,10 @@ public class AddCompanyCommandParser implements Parser<AddCompanyCommand> {
                 CliSyntax.PREFIX_INDUSTRY, CliSyntax.PREFIX_LOCATION, CliSyntax.PREFIX_DESCRIPTION);
 
         CompanyName name = ParserCompanyUtil.parseName(argMultimap.getValue(CliSyntax.PREFIX_NAME).get());
-        CompanyIndustry industry = ParserCompanyUtil.parseIndustry(argMultimap.getValue(CliSyntax.PREFIX_INDUSTRY).get());
-        CompanyLocation location = ParserCompanyUtil.parseLocation(argMultimap.getValue(CliSyntax.PREFIX_LOCATION).get());
+        CompanyIndustry industry = ParserCompanyUtil.parseIndustry(argMultimap.
+                getValue(CliSyntax.PREFIX_INDUSTRY).get());
+        CompanyLocation location = ParserCompanyUtil.parseLocation(argMultimap.
+                getValue(CliSyntax.PREFIX_LOCATION).get());
         String description = argMultimap.getValue(CliSyntax.PREFIX_DESCRIPTION)
                 .orElseThrow(() -> new ParseException("Description is required"));
         CompanyWebsite website = ParserCompanyUtil.parseWebsite(argMultimap.getValue(CliSyntax.PREFIX_WEBSITE).get());
