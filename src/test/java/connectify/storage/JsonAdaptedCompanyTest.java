@@ -91,7 +91,7 @@ public class JsonAdaptedCompanyTest {
 
     /**
      * Tests if a null industry in the company throws an {@code IllegalValueException}.
-     */    
+     */
     @Test
     public void toModelType_nullIndustry_throwsIllegalValueException() {
         JsonAdaptedCompany company =
