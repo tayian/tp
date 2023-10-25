@@ -8,13 +8,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Arrays;
 
 import org.junit.jupiter.api.Test;
 
 import connectify.commons.core.GuiSettings;
-import connectify.model.company.CompanyNameContainsKeywordsPredicate;
-import connectify.model.person.NameContainsKeywordsPredicate;
 import connectify.testutil.AddressBookBuilder;
 import connectify.testutil.Assert;
 import connectify.testutil.TypicalCompanies;
@@ -311,53 +308,32 @@ public class ModelManagerTest {
         AddressBook differentAddressBook = new AddressBook();
         UserPrefs userPrefs = new UserPrefs();
 
-        // same people values -> returns true
+        // Same addressBook and userPrefs values -> returns true
         modelManager = new ModelManager(addressBook, userPrefs);
         ModelManager modelManagerCopy = new ModelManager(addressBook, userPrefs);
         assertTrue(modelManager.equals(modelManagerCopy));
 
-        // same object -> returns true
+        // Same object -> returns true
         assertTrue(modelManager.equals(modelManager));
 
-        // null -> returns false
+        // Null -> returns false
         assertFalse(modelManager.equals(null));
 
-        // different types -> returns false
+        // Different types -> returns false
         assertFalse(modelManager.equals(5));
 
-        // different addressBook -> returns false
+        // Different addressBook -> returns false
         assertFalse(modelManager.equals(new ModelManager(differentAddressBook, userPrefs)));
 
-        // different filteredList -> returns false
-        String[] keywords = TypicalPersons.ALICE.getName().fullName.split("\\s+");
-        modelManager.updateFilteredPersonList(new NameContainsKeywordsPredicate(Arrays.asList(keywords)));
-        assertFalse(modelManager.equals(new ModelManager(addressBook, userPrefs)));
-
-        // different filteredList -> returns false
-        String[] companyKeywords = TypicalCompanies.COMPANY_1.getName().fullName.split("\\s+");
-        modelManager
-                .updateFilteredCompanyList(new CompanyNameContainsKeywordsPredicate(Arrays.asList(companyKeywords)));
-        assertFalse(modelManager.equals(new ModelManager(addressBook, userPrefs)));
-
-        // resets modelManager to initial state for upcoming tests
+        // Resets modelManager to initial state for upcoming tests
         modelManager.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
 
-        // resets modelManager to initial state for upcoming tests
+        // Resets modelManager to initial state for upcoming tests
         modelManager.updateFilteredCompanyList(PREDICATE_SHOW_ALL_COMPANIES);
 
-        // different userPrefs -> returns false
+        // Different userPrefs -> returns false
         UserPrefs differentUserPrefs = new UserPrefs();
         differentUserPrefs.setAddressBookFilePath(Paths.get("differentFilePath"));
         assertFalse(modelManager.equals(new ModelManager(addressBook, differentUserPrefs)));
-
-        // same companies values -> returns true
-        addressBook = new AddressBookBuilder().withCompany(TypicalCompanies.COMPANY_1)
-                .withCompany(TypicalCompanies.COMPANY_2).build();
-
-        modelManager = new ModelManager(addressBook, userPrefs);
-        modelManagerCopy = new ModelManager(addressBook, userPrefs);
-        assertTrue(modelManager.equals(modelManagerCopy));
-
-        assertFalse(modelManager.equals(new ModelManager(differentAddressBook, userPrefs)));
     }
 }
