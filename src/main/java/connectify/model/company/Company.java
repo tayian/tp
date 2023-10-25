@@ -4,6 +4,7 @@ import static connectify.commons.util.CollectionUtil.requireAllNonNull;
 
 import connectify.commons.util.ToStringBuilder;
 import connectify.model.Entity;
+import connectify.model.person.Person;
 import connectify.model.person.PersonList;
 
 /**
@@ -11,16 +12,16 @@ import connectify.model.person.PersonList;
  * Guarantees: details are present and not null, field values are validated, immutable.
  */
 public class Company extends Entity {
-    private CompanyName name;
-    private CompanyIndustry industry;
-    private CompanyLocation location;
-    private String description;
-    private CompanyWebsite website;
-    private CompanyEmail email;
-    private CompanyPhone phone;
-    private CompanyAddress address;
+    private final CompanyName name;
+    private final CompanyIndustry industry;
+    private final CompanyLocation location;
+    private final String description;
+    private final CompanyWebsite website;
+    private final CompanyEmail email;
+    private final CompanyPhone phone;
+    private final CompanyAddress address;
 
-    private PersonList personList;
+    private final PersonList personList;
 
     /**
      * Constructor for Company, with PersonList declared.
@@ -80,6 +81,27 @@ public class Company extends Entity {
      */
     public PersonList getPersonList() {
         return personList;
+    }
+
+    /**
+     * Adds a person to the company.
+     * @param person Person to be added
+     */
+    public Company addPersonToCompany(Person person) {
+        requireAllNonNull(person);
+        PersonList edited = new PersonList(personList).addPerson(person);
+        return new Company(name, industry, location, description, website, email, phone, address, edited);
+    }
+
+    /**
+     * Deletes a person from the company.
+     * @param person Person to be removed
+     * @return New Company object with the person removed
+     */
+    public Company deletePersonFromCompany(Person person) {
+        requireAllNonNull(person);
+        PersonList edited = new PersonList(personList).removePerson(person);
+        return new Company(name, industry, location, description, website, email, phone, address, edited);
     }
 
     /**
