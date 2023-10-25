@@ -1,6 +1,13 @@
 package connectify.testutil;
 
 import connectify.model.company.Company;
+import connectify.model.company.CompanyAddress;
+import connectify.model.company.CompanyEmail;
+import connectify.model.company.CompanyIndustry;
+import connectify.model.company.CompanyLocation;
+import connectify.model.company.CompanyName;
+import connectify.model.company.CompanyPhone;
+import connectify.model.company.CompanyWebsite;
 import connectify.model.person.PersonList;
 
 /**
@@ -13,18 +20,18 @@ public class CompanyBuilder {
     public static final String DEFAULT_DESCRIPTION = "Google is an American multinational technology company "
             + "specializing in Internet-related services and products.";
     public static final String DEFAULT_WEBSITE = "https://www.google.com/";
-    public static final String DEFAULT_EMAIL = "";
+    public static final String DEFAULT_EMAIL = "google@gmail.com";
 
     public static final String DEFAULT_PHONE = "12345678";
     public static final String DEFAULT_ADDRESS = "1600 Amphitheatre Parkway, Mountain View, CA 94043, USA";
-    private String name;
-    private String industry;
-    private String location;
+    private CompanyName name;
+    private CompanyIndustry industry;
+    private CompanyLocation location;
     private String description;
-    private String website;
-    private String email;
-    private String phone;
-    private String address;
+    private CompanyWebsite website;
+    private CompanyEmail email;
+    private CompanyPhone phone;
+    private CompanyAddress address;
 
     private PersonList personList;
 
@@ -32,14 +39,14 @@ public class CompanyBuilder {
      * Creates a {@code CompanyBuilder} with the default details.
      */
     public CompanyBuilder() {
-        this.name = DEFAULT_NAME;
-        this.industry = DEFAULT_INDUSTRY;
-        this.location = DEFAULT_LOCATION;
+        this.name = new CompanyName(DEFAULT_NAME);
+        this.industry = new CompanyIndustry(DEFAULT_INDUSTRY);
+        this.location = new CompanyLocation(DEFAULT_LOCATION);
         this.description = DEFAULT_DESCRIPTION;
-        this.website = DEFAULT_WEBSITE;
-        this.email = DEFAULT_EMAIL;
-        this.phone = DEFAULT_PHONE;
-        this.address = DEFAULT_ADDRESS;
+        this.website = new CompanyWebsite(DEFAULT_WEBSITE);
+        this.email = new CompanyEmail(DEFAULT_EMAIL);
+        this.phone = new CompanyPhone(DEFAULT_PHONE);
+        this.address = new CompanyAddress(DEFAULT_ADDRESS);
         this.personList = new PersonList();
     }
 
@@ -63,7 +70,7 @@ public class CompanyBuilder {
      * Sets the {@code Name} of the {@code Company} that we are building.
      */
     public CompanyBuilder withName(String name) {
-        this.name = name;
+        this.name = new CompanyName(name);
         return this;
     }
 
@@ -71,7 +78,7 @@ public class CompanyBuilder {
      * Sets the {@code Industry} of the {@code Company} that we are building.
      */
     public CompanyBuilder withIndustry(String industry) {
-        this.industry = industry;
+        this.industry = new CompanyIndustry(industry);
         return this;
     }
 
@@ -79,7 +86,7 @@ public class CompanyBuilder {
      * Sets the {@code Location} of the {@code Company} that we are building.
      */
     public CompanyBuilder withLocation(String location) {
-        this.location = location;
+        this.location = new CompanyLocation(location);
         return this;
     }
 
@@ -95,7 +102,7 @@ public class CompanyBuilder {
      * Sets the {@code Website} of the {@code Company} that we are building.
      */
     public CompanyBuilder withWebsite(String website) {
-        this.website = website;
+        this.website = new CompanyWebsite(website);
         return this;
     }
 
@@ -103,7 +110,7 @@ public class CompanyBuilder {
      * Sets the {@code Email} of the {@code Company} that we are building.
      */
     public CompanyBuilder withEmail(String email) {
-        this.email = email;
+        this.email = new CompanyEmail(email);
         return this;
     }
 
@@ -111,7 +118,7 @@ public class CompanyBuilder {
      * Sets the {@code Phone} of the {@code Company} that we are building.
      */
     public CompanyBuilder withPhone(String phone) {
-        this.phone = phone;
+        this.phone = new CompanyPhone(phone);
         return this;
     }
 
@@ -119,7 +126,7 @@ public class CompanyBuilder {
      * Sets the {@code Address} of the {@code Company} that we are building.
      */
     public CompanyBuilder withAddress(String address) {
-        this.address = address;
+        this.address = new CompanyAddress(address);
         return this;
     }
 
