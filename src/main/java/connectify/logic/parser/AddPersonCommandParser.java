@@ -8,12 +8,12 @@ import java.util.stream.Stream;
 import connectify.commons.core.index.Index;
 import connectify.logic.commands.AddPersonCommand;
 import connectify.logic.parser.exceptions.ParseException;
-import connectify.model.person.Address;
-import connectify.model.person.Email;
-import connectify.model.person.Name;
 import connectify.model.person.Person;
+import connectify.model.person.PersonAddress;
+import connectify.model.person.PersonEmail;
+import connectify.model.person.PersonName;
+import connectify.model.person.PersonPhone;
 import connectify.model.person.PersonPriority;
-import connectify.model.person.Phone;
 import connectify.model.tag.Tag;
 
 /**
@@ -40,16 +40,17 @@ public class AddPersonCommandParser implements Parser<AddPersonCommand> {
 
         argMultimap.verifyNoDuplicatePrefixesFor(CliSyntax.PREFIX_NAME, CliSyntax.PREFIX_PHONE, CliSyntax.PREFIX_EMAIL,
                 CliSyntax.PREFIX_ADDRESS);
-        Name name = ParserUtil.parseName(argMultimap.getValue(CliSyntax.PREFIX_NAME).get());
-        Phone phone = ParserUtil.parsePhone(argMultimap.getValue(CliSyntax.PREFIX_PHONE).get());
-        Email email = ParserUtil.parseEmail(argMultimap.getValue(CliSyntax.PREFIX_EMAIL).get());
-        Address address = ParserUtil.parseAddress(argMultimap.getValue(CliSyntax.PREFIX_ADDRESS).get());
-        Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(CliSyntax.PREFIX_TAG));
+        PersonName name = ParserPersonUtil.parseName(argMultimap.getValue(CliSyntax.PREFIX_NAME).get());
+        PersonPhone personPhone = ParserPersonUtil.parsePhone(argMultimap.getValue(CliSyntax.PREFIX_PHONE).get());
+        PersonEmail personEmail = ParserPersonUtil.parseEmail(argMultimap.getValue(CliSyntax.PREFIX_EMAIL).get());
+        PersonAddress personAddress = ParserPersonUtil.parseAddress(argMultimap
+                .getValue(CliSyntax.PREFIX_ADDRESS).get());
+        Set<Tag> tagList = ParserPersonUtil.parseTags(argMultimap.getAllValues(CliSyntax.PREFIX_TAG));
 
         // Defaults to first company if no company index is provided
-        Index companyIndex = ParserUtil.parseIndex(argMultimap.getValue(CliSyntax.PREFIX_COMPANY).orElse("1"));
-        PersonPriority priority = ParserUtil.parsePersonPriority(argMultimap.getValue(CliSyntax.PREFIX_PRIORITY).get());
-        Person person = new Person(name, phone, email, address, tagList, priority);
+        Index companyIndex = ParserCompanyUtil.parseIndex(argMultimap.getValue(CliSyntax.PREFIX_COMPANY).orElse("1"));
+        PersonPriority priority = ParserPersonUtil.parsePersonPriority(argMultimap.getValue(CliSyntax.PREFIX_PRIORITY).get());
+        Person person = new Person(name, personPhone, personEmail, personAddress, tagList, priority);
 
         return new AddPersonCommand(person, companyIndex);
     }
