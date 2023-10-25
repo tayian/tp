@@ -24,8 +24,8 @@ public class DeletePersonCommandParser implements Parser<DeletePersonCommand> {
                 throw new ParseException(MESSAGE_INVALID_COMMAND_FORMAT);
             }
 
-            Index companyIndex = ParserUtil.parseIndex(splitArgs[0]);
-            Index personIndex = ParserUtil.parseIndex(splitArgs[1]);
+            Index companyIndex = ParserPersonUtil.parseIndex(splitArgs[0]);
+            Index personIndex = ParserCompanyUtil.parseIndex(splitArgs[1]);
 
             return new DeletePersonCommand(companyIndex, personIndex);
         } catch (ParseException pe) {
@@ -33,4 +33,5 @@ public class DeletePersonCommandParser implements Parser<DeletePersonCommand> {
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, DeletePersonCommand.MESSAGE_USAGE), pe);
         }
     }
+
 }
