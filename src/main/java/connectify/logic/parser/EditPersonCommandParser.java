@@ -2,6 +2,7 @@ package connectify.logic.parser;
 
 import static connectify.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static connectify.logic.parser.CliSyntax.PREFIX_ADDRESS;
+import static connectify.logic.parser.CliSyntax.PREFIX_COMPANY;
 import static connectify.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static connectify.logic.parser.CliSyntax.PREFIX_NAME;
 import static connectify.logic.parser.CliSyntax.PREFIX_PHONE;
@@ -14,40 +15,52 @@ import java.util.Optional;
 import java.util.Set;
 
 import connectify.commons.core.index.Index;
-import connectify.logic.commands.EditCommand;
+import connectify.logic.commands.EditPersonCommand;
 import connectify.logic.parser.exceptions.ParseException;
 import connectify.model.tag.Tag;
 
 /**
- * Parses input arguments and creates a new EditCommand object
+ * Parses input arguments and creates a new EditPersonCommand object
  */
-public class EditCommandParser implements Parser<EditCommand> {
+public class EditPersonCommandParser implements Parser<EditPersonCommand> {
 
     /**
-     * Parses the given {@code String} of arguments in the context of the EditCommand
-     * and returns an EditCommand object for execution.
+     * Parses the given {@code String} of arguments in the context of the EditPersonCommand
+     * and returns an EditPersonCommand object for execution.
      * @throws ParseException if the user input does not conform the expected format
      */
-    public EditCommand parse(String args) throws ParseException {
+    public EditPersonCommand parse(String args) throws ParseException {
         requireNonNull(args);
         ArgumentMultimap argMultimap =
-                ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ADDRESS, PREFIX_TAG);
+                ArgumentTokenizer.tokenize(args, PREFIX_COMPANY, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL,
+                            PREFIX_ADDRESS, PREFIX_TAG);
 
         Index index;
 
         try {
             index = ParserPersonUtil.parseIndex(argMultimap.getPreamble());
         } catch (ParseException pe) {
-            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditCommand.MESSAGE_USAGE), pe);
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
+                    EditPersonCommand.MESSAGE_USAGE), pe);
         }
 
-        argMultimap.verifyNoDuplicatePrefixesFor(PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ADDRESS);
+        argMultimap.verifyNoDuplicatePrefixesFor(PREFIX_COMPANY, PREFIX_NAME,
+                PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ADDRESS);
 
-        EditCommand.EditPersonDescriptor editPersonDescriptor = new EditCommand.EditPersonDescriptor();
+        EditPersonCommand.EditPersonDescriptor editPersonDescriptor = new EditPersonCommand.EditPersonDescriptor();
+
+        Index companyIndex;
+        if (argMultimap.getValue(PREFIX_COMPANY).isPresent()) {
+            companyIndex = ParserPersonUtil.parseIndex(argMultimap.getValue(PREFIX_COMPANY).get());
+        } else {
+            throw new ParseException(String.format(EditPersonCommand.MESSAGE_NO_COMPANY_PROVIDED,
+                    EditPersonCommand.MESSAGE_USAGE));
+        }
 
         if (argMultimap.getValue(PREFIX_NAME).isPresent()) {
             editPersonDescriptor.setName(ParserPersonUtil.parseName(argMultimap.getValue(PREFIX_NAME).get()));
         }
+
         if (argMultimap.getValue(PREFIX_PHONE).isPresent()) {
             editPersonDescriptor.setPhone(ParserPersonUtil.parsePhone(argMultimap.getValue(PREFIX_PHONE).get()));
         }
@@ -60,10 +73,10 @@ public class EditCommandParser implements Parser<EditCommand> {
         parseTagsForEdit(argMultimap.getAllValues(PREFIX_TAG)).ifPresent(editPersonDescriptor::setTags);
 
         if (!editPersonDescriptor.isAnyFieldEdited()) {
-            throw new ParseException(EditCommand.MESSAGE_NOT_EDITED);
+            throw new ParseException(EditPersonCommand.MESSAGE_NOT_EDITED);
         }
 
-        return new EditCommand(index, editPersonDescriptor);
+        return new EditPersonCommand(index, companyIndex, editPersonDescriptor);
     }
 
     /**
