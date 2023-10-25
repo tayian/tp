@@ -3,12 +3,12 @@ package connectify.testutil;
 import java.util.HashSet;
 import java.util.Set;
 
-import connectify.model.person.Address;
-import connectify.model.person.Email;
-import connectify.model.person.Name;
 import connectify.model.person.Person;
+import connectify.model.person.PersonAddress;
+import connectify.model.person.PersonEmail;
+import connectify.model.person.PersonName;
+import connectify.model.person.PersonPhone;
 import connectify.model.person.PersonPriority;
-import connectify.model.person.Phone;
 import connectify.model.tag.Tag;
 import connectify.model.util.SampleDataUtil;
 
@@ -24,10 +24,10 @@ public class PersonBuilder {
 
     public static final String DEFAULT_PRIORITY = "1";
 
-    private Name name;
-    private Phone phone;
-    private Email email;
-    private Address address;
+    private PersonName name;
+    private PersonPhone personPhone;
+    private PersonEmail personEmail;
+    private PersonAddress personAddress;
     private Set<Tag> tags;
 
     private PersonPriority priority;
@@ -36,10 +36,10 @@ public class PersonBuilder {
      * Creates a {@code PersonBuilder} with the default details.
      */
     public PersonBuilder() {
-        name = new Name(DEFAULT_NAME);
-        phone = new Phone(DEFAULT_PHONE);
-        email = new Email(DEFAULT_EMAIL);
-        address = new Address(DEFAULT_ADDRESS);
+        name = new PersonName(DEFAULT_NAME);
+        personPhone = new PersonPhone(DEFAULT_PHONE);
+        personEmail = new PersonEmail(DEFAULT_EMAIL);
+        personAddress = new PersonAddress(DEFAULT_ADDRESS);
         tags = new HashSet<>();
         priority = new PersonPriority(DEFAULT_PRIORITY);
 
@@ -50,9 +50,9 @@ public class PersonBuilder {
      */
     public PersonBuilder(Person personToCopy) {
         name = personToCopy.getName();
-        phone = personToCopy.getPhone();
-        email = personToCopy.getEmail();
-        address = personToCopy.getAddress();
+        personPhone = personToCopy.getPhone();
+        personEmail = personToCopy.getEmail();
+        personAddress = personToCopy.getAddress();
         tags = new HashSet<>(personToCopy.getTags());
         priority = personToCopy.getPriority();
     }
@@ -61,7 +61,7 @@ public class PersonBuilder {
      * Sets the {@code Name} of the {@code Person} that we are building.
      */
     public PersonBuilder withName(String name) {
-        this.name = new Name(name);
+        this.name = new PersonName(name);
         return this;
     }
 
@@ -77,7 +77,7 @@ public class PersonBuilder {
      * Sets the {@code Address} of the {@code Person} that we are building.
      */
     public PersonBuilder withAddress(String address) {
-        this.address = new Address(address);
+        this.personAddress = new PersonAddress(address);
         return this;
     }
 
@@ -85,7 +85,7 @@ public class PersonBuilder {
      * Sets the {@code Phone} of the {@code Person} that we are building.
      */
     public PersonBuilder withPhone(String phone) {
-        this.phone = new Phone(phone);
+        this.personPhone = new PersonPhone(phone);
         return this;
     }
 
@@ -93,7 +93,7 @@ public class PersonBuilder {
      * Sets the {@code Email} of the {@code Person} that we are building.
      */
     public PersonBuilder withEmail(String email) {
-        this.email = new Email(email);
+        this.personEmail = new PersonEmail(email);
         return this;
     }
 
@@ -110,7 +110,7 @@ public class PersonBuilder {
      * @return Person object
      */
     public Person build() {
-        return new Person(name, phone, email, address, tags, priority);
+        return new Person(name, personPhone, personEmail, personAddress, tags, priority);
     }
 
 }
