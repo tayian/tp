@@ -2,6 +2,7 @@ package connectify.logic.parser;
 
 import static connectify.logic.parser.ParserPersonUtil.MESSAGE_INVALID_INDEX;
 import static connectify.testutil.Assert.assertThrows;
+import static connectify.testutil.TypicalIndexes.INDEX_FIRST_COMPANY;
 import static connectify.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -192,5 +193,19 @@ public class ParserPersonUtilTest {
         Set<Tag> expectedTagSet = new HashSet<Tag>(Arrays.asList(new Tag(VALID_TAG_1), new Tag(VALID_TAG_2)));
 
         assertEquals(expectedTagSet, actualTagSet);
+    }
+
+    @Test
+    public void parseCompany_validInput_success() throws Exception {
+        // No whitespaces
+        assertEquals(INDEX_FIRST_COMPANY, ParserPersonUtil.parseCompany("1"));
+
+        // Leading and trailing whitespaces
+        assertEquals(INDEX_FIRST_COMPANY, ParserPersonUtil.parseCompany("  1  "));
+    }
+
+    @Test
+    public void parseCompany_null_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> ParserPersonUtil.parseCompany((String) null));
     }
 }

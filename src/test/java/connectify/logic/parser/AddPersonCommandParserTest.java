@@ -5,6 +5,7 @@ import static connectify.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static connectify.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static connectify.logic.parser.CliSyntax.PREFIX_NAME;
 import static connectify.logic.parser.CliSyntax.PREFIX_PHONE;
+import static connectify.testutil.TypicalIndexes.INDEX_FIRST_COMPANY;
 import static connectify.testutil.TypicalPersons.AMY;
 import static connectify.testutil.TypicalPersons.BOB;
 
@@ -22,7 +23,7 @@ import connectify.model.tag.Tag;
 import connectify.testutil.PersonBuilder;
 
 public class AddPersonCommandParserTest {
-    private AddPersonCommandParser parser = new AddPersonCommandParser();
+    private final AddPersonCommandParser parser = new AddPersonCommandParser();
 
     @Test
     public void parse_allFieldsPresent_success() {
@@ -32,7 +33,7 @@ public class AddPersonCommandParserTest {
         CommandParserTestUtil.assertParseSuccess(parser, CommandTestUtil.PREAMBLE_WHITESPACE
                     + CommandTestUtil.NAME_DESC_BOB + CommandTestUtil.PHONE_DESC_BOB + CommandTestUtil.EMAIL_DESC_BOB
                     + CommandTestUtil.ADDRESS_DESC_BOB + CommandTestUtil.TAG_DESC_FRIEND,
-                    new AddPersonCommand(expectedPerson));
+                    new AddPersonCommand(expectedPerson, INDEX_FIRST_COMPANY));
 
 
         // multiple tags - all accepted
@@ -41,7 +42,8 @@ public class AddPersonCommandParserTest {
         CommandParserTestUtil.assertParseSuccess(parser,
             CommandTestUtil.NAME_DESC_BOB + CommandTestUtil.PHONE_DESC_BOB + CommandTestUtil.EMAIL_DESC_BOB
                     + CommandTestUtil.ADDRESS_DESC_BOB + CommandTestUtil.TAG_DESC_HUSBAND
-                    + CommandTestUtil.TAG_DESC_FRIEND, new AddPersonCommand(expectedPersonMultipleTags));
+                    + CommandTestUtil.TAG_DESC_FRIEND, new AddPersonCommand(expectedPersonMultipleTags,
+                        INDEX_FIRST_COMPANY));
     }
 
     @Test
@@ -117,7 +119,7 @@ public class AddPersonCommandParserTest {
         Person expectedPerson = new PersonBuilder(AMY).withTags().build();
         CommandParserTestUtil.assertParseSuccess(parser, CommandTestUtil.NAME_DESC_AMY
                     + CommandTestUtil.PHONE_DESC_AMY + CommandTestUtil.EMAIL_DESC_AMY
-                    + CommandTestUtil.ADDRESS_DESC_AMY, new AddPersonCommand(expectedPerson));
+                    + CommandTestUtil.ADDRESS_DESC_AMY, new AddPersonCommand(expectedPerson, INDEX_FIRST_COMPANY));
     }
 
     @Test
