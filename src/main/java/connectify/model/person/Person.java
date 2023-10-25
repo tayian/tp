@@ -17,40 +17,57 @@ import connectify.model.tag.Tag;
 public class Person extends Entity {
 
     // Identity fields
-    private final Name name;
-    private final Phone phone;
-    private final Email email;
+    private final PersonName name;
+    private final PersonPhone personPhone;
+    private final PersonEmail personEmail;
 
     // Data fields
-    private final Address address;
+    private final PersonAddress personAddress;
     private final Set<Tag> tags = new HashSet<>();
 
     /**
      * Every field must be present and not null.
      */
-    public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags) {
-        CollectionUtil.requireAllNonNull(name, phone, email, address, tags);
+    public Person(PersonName name, PersonPhone personPhone, PersonEmail personEmail,
+                  PersonAddress personAddress, Set<Tag> tags) {
+        CollectionUtil.requireAllNonNull(name, personPhone, personEmail, personAddress, tags);
         this.name = name;
-        this.phone = phone;
-        this.email = email;
-        this.address = address;
+        this.personPhone = personPhone;
+        this.personEmail = personEmail;
+        this.personAddress = personAddress;
         this.tags.addAll(tags);
     }
 
-    public Name getName() {
+    /**
+     * Returns the name of the person.
+     * @return Name of person
+     */
+    public PersonName getName() {
         return name;
     }
 
-    public Phone getPhone() {
-        return phone;
+    /**
+     * Returns the phone number of the person.
+     * @return Phone number of person
+     */
+    public PersonPhone getPhone() {
+        return personPhone;
     }
 
-    public Email getEmail() {
-        return email;
+    /**
+     * Returns the email of the person.
+     * @return Email of person
+     */
+    public PersonEmail getEmail() {
+        return personEmail;
     }
 
-    public Address getAddress() {
-        return address;
+    /**
+     * Returns the address of the person.
+     * @return Address of person
+     */
+    public PersonAddress getAddress() {
+        return personAddress;
     }
 
     /**
@@ -91,25 +108,25 @@ public class Person extends Entity {
 
         Person otherPerson = (Person) other;
         return name.equals(otherPerson.name)
-                && phone.equals(otherPerson.phone)
-                && email.equals(otherPerson.email)
-                && address.equals(otherPerson.address)
+                && personPhone.equals(otherPerson.personPhone)
+                && personEmail.equals(otherPerson.personEmail)
+                && personAddress.equals(otherPerson.personAddress)
                 && tags.equals(otherPerson.tags);
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, address, tags);
+        return Objects.hash(name, personPhone, personEmail, personAddress, tags);
     }
 
     @Override
     public String toString() {
         return new ToStringBuilder(this)
                 .add("name", name)
-                .add("phone", phone)
-                .add("email", email)
-                .add("address", address)
+                .add("phone", personPhone)
+                .add("email", personEmail)
+                .add("address", personAddress)
                 .add("tags", tags)
                 .toString();
     }
