@@ -9,6 +9,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import connectify.commons.exceptions.IllegalValueException;
 import connectify.model.company.Company;
+import connectify.model.company.CompanyAddress;
+import connectify.model.company.CompanyEmail;
+import connectify.model.company.CompanyIndustry;
+import connectify.model.company.CompanyLocation;
+import connectify.model.company.CompanyName;
+import connectify.model.company.CompanyPhone;
+import connectify.model.company.CompanyWebsite;
 import connectify.model.person.Person;
 import connectify.model.person.PersonList;
 
@@ -74,14 +81,14 @@ public class JsonAdaptedCompany {
      * @param source The source {@code Company} object to convert from.
      */
     public JsonAdaptedCompany(Company source) {
-        name = source.getName();
-        industry = source.getIndustry();
-        location = source.getLocation();
+        name = source.getName().fullName;
+        industry = source.getIndustry().value;
+        location = source.getLocation().value;
         description = source.getDescription();
-        website = source.getWebsite();
-        email = source.getEmail();
-        phone = source.getPhone();
-        address = source.getAddress();
+        website = source.getWebsite().value;
+        email = source.getEmail().value;
+        phone = source.getPhone().value;
+        address = source.getAddress().value;
         personList.addAll(source.getPersonList().asList().stream().map(JsonAdaptedPerson::new)
                 .collect(Collectors.toList()));
     }
@@ -99,36 +106,65 @@ public class JsonAdaptedCompany {
         final PersonList modelPersonList = PersonList.fromList(personListCompany);
 
         if (name == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, "Name"));
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
+                    CompanyName.class.getSimpleName()));
         }
+        if (!CompanyName.isValidName(name)) {
+            throw new IllegalValueException(CompanyName.MESSAGE_CONSTRAINTS);
+        }
+        final CompanyName modelName = new CompanyName(name);
+
         if (phone == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, "Phone"));
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
+                    CompanyPhone.class.getSimpleName()));
         }
+        if (!CompanyPhone.isValidPhone(phone)) {
+            throw new IllegalValueException(CompanyPhone.MESSAGE_CONSTRAINTS);
+        }
+        final CompanyPhone modelCompanyPhone = new CompanyPhone(phone);
 
         if (industry == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, "Industry"));
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
+                    CompanyIndustry.class.getSimpleName()));
         }
+        final CompanyIndustry modelCompanyIndustry = new CompanyIndustry(industry);
 
         if (location == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, "Location"));
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
+                    CompanyLocation.class.getSimpleName()));
         }
+        final CompanyLocation modelCompanyLocation = new CompanyLocation(location);
 
         if (description == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, "Description"));
         }
 
         if (website == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, "Website"));
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
+                    CompanyWebsite.class.getSimpleName()));
         }
+        final CompanyWebsite modelCompanyWebsite = new CompanyWebsite(website);
 
         if (email == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, "Email"));
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
+                    CompanyEmail.class.getSimpleName()));
         }
+        if (!CompanyEmail.isValidEmail(email)) {
+            throw new IllegalValueException(CompanyEmail.MESSAGE_CONSTRAINTS);
+        }
+        final CompanyEmail modelCompanyEmail = new CompanyEmail(email);
 
         if (address == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, "Address"));
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
+                    CompanyAddress.class.getSimpleName()));
         }
+        if (!CompanyAddress.isValidAddress(address)) {
+            throw new IllegalValueException(CompanyAddress.MESSAGE_CONSTRAINTS);
+        }
+        final CompanyAddress modelCompanyAddress = new CompanyAddress(address);
 
-        return new Company(name, industry, location, description, website, email, phone, address, modelPersonList);
+        return new Company(modelName, modelCompanyIndustry, modelCompanyLocation,
+                description, modelCompanyWebsite, modelCompanyEmail,
+                modelCompanyPhone, modelCompanyAddress, modelPersonList);
     }
 }
