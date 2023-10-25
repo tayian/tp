@@ -29,14 +29,14 @@ public class CompanyUtil {
      */
     public static String getCompanyDetails(Company company) {
         StringBuilder sb = new StringBuilder();
-        sb.append(PREFIX_NAME + company.getName() + " ");
-        sb.append(PREFIX_INDUSTRY + company.getIndustry() + " ");
-        sb.append(PREFIX_LOCATION + company.getLocation() + " ");
+        sb.append(PREFIX_NAME + company.getName().fullName + " ");
+        sb.append(PREFIX_INDUSTRY + company.getIndustry().value + " ");
+        sb.append(PREFIX_LOCATION + company.getLocation().value + " ");
         sb.append(PREFIX_DESCRIPTION + company.getDescription() + " ");
-        sb.append(PREFIX_WEBSITE + company.getWebsite() + " ");
-        sb.append(PREFIX_EMAIL + company.getEmail() + " ");
-        sb.append(PREFIX_PHONE + company.getPhone() + " ");
-        sb.append(PREFIX_ADDRESS + company.getAddress() + " ");
+        sb.append(PREFIX_WEBSITE + company.getWebsite().value + " ");
+        sb.append(PREFIX_EMAIL + company.getEmail().value + " ");
+        sb.append(PREFIX_PHONE + company.getPhone().value + " ");
+        sb.append(PREFIX_ADDRESS + company.getAddress().value + " ");
         return sb.toString();
     }
 
