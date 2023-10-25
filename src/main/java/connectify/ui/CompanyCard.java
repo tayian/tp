@@ -44,9 +44,9 @@ public class CompanyCard extends UiPart<Region> {
     public CompanyCard(Company company, int displayedIndex) {
         super(FXML);
         id.setText(displayedIndex + ". ");
-        name.setText(company.getName());
-        phone.setText(company.getPhone());
-        address.setText(company.getAddress());
+        name.setText(company.getName().fullName);
+        phone.setText(company.getPhone().value);
+        address.setText(company.getAddress().value);
 
         PersonList personList = company.getPersonList();
         StringBuilder str = new StringBuilder("People:\n");
@@ -58,6 +58,6 @@ public class CompanyCard extends UiPart<Region> {
         Label label = new Label("Company");
         label.setStyle("-fx-background-color: #FF4F79");
         tags.getChildren().add(label);
-        tags.getChildren().add(new Label(company.getIndustry()));
+        tags.getChildren().add(new Label(company.getIndustry().value));
     }
 }
