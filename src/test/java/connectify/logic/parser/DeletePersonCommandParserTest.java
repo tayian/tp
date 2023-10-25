@@ -19,7 +19,7 @@ import connectify.logic.commands.DeletePersonCommand;
  */
 public class DeletePersonCommandParserTest {
 
-    private DeletePersonCommandParser parser = new DeletePersonCommandParser();
+    private final DeletePersonCommandParser parser = new DeletePersonCommandParser();
 
     @Test
     public void parse_validArgs_returnsDeletePersonCommand() {
