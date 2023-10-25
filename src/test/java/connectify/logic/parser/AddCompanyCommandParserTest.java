@@ -9,6 +9,13 @@ import org.junit.jupiter.api.Test;
 import connectify.logic.commands.AddCompanyCommand;
 import connectify.logic.parser.exceptions.ParseException;
 import connectify.model.company.Company;
+import connectify.model.company.CompanyAddress;
+import connectify.model.company.CompanyEmail;
+import connectify.model.company.CompanyIndustry;
+import connectify.model.company.CompanyLocation;
+import connectify.model.company.CompanyName;
+import connectify.model.company.CompanyPhone;
+import connectify.model.company.CompanyWebsite;
 
 public class AddCompanyCommandParserTest {
 
@@ -25,9 +32,10 @@ public class AddCompanyCommandParserTest {
                 +
                 "a/123 Main St w/www.google.com i/IT l/Singapore d/Leading IT Solutions";
         AddCompanyCommand expectedCommand = new AddCompanyCommand(
-                new Company("Company A", "IT", "Singapore",
-                        "Leading IT Solutions", "www.google.com",
-                        "hello@email.com", "12345678", "123 Main St"));
+                new Company(new CompanyName("Company A"), new CompanyIndustry("IT"),
+                        new CompanyLocation("Singapore"), "Leading IT Solutions",
+                        new CompanyWebsite("www.google.com"), new CompanyEmail("hello@email.com"),
+                        new CompanyPhone("12345678"), new CompanyAddress("123 Main St")));
         assertEquals(parser.parse(userInput), expectedCommand);
     }
 
