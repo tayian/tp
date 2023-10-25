@@ -7,6 +7,13 @@ import java.util.stream.Stream;
 import connectify.logic.commands.AddCompanyCommand;
 import connectify.logic.parser.exceptions.ParseException;
 import connectify.model.company.Company;
+import connectify.model.company.CompanyAddress;
+import connectify.model.company.CompanyEmail;
+import connectify.model.company.CompanyIndustry;
+import connectify.model.company.CompanyLocation;
+import connectify.model.company.CompanyName;
+import connectify.model.company.CompanyPhone;
+import connectify.model.company.CompanyWebsite;
 
 /**
  * Parses input arguments and creates a new AddCompanyCommand object
@@ -32,22 +39,21 @@ public class AddCompanyCommandParser implements Parser<AddCompanyCommand> {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCompanyCommand.MESSAGE_USAGE));
         }
 
-        String name = argMultimap.getValue(CliSyntax.PREFIX_NAME)
-                .orElseThrow(() -> new ParseException("Name is required"));
-        String industry = argMultimap.getValue(CliSyntax.PREFIX_INDUSTRY)
-                .orElseThrow(() -> new ParseException("Industry is required"));
-        String location = argMultimap.getValue(CliSyntax.PREFIX_LOCATION)
-                .orElseThrow(() -> new ParseException("Location is required"));
+        argMultimap.verifyNoDuplicatePrefixesFor(CliSyntax.PREFIX_NAME, CliSyntax.PREFIX_PHONE,
+                CliSyntax.PREFIX_EMAIL, CliSyntax.PREFIX_ADDRESS, CliSyntax.PREFIX_WEBSITE,
+                CliSyntax.PREFIX_INDUSTRY, CliSyntax.PREFIX_LOCATION, CliSyntax.PREFIX_DESCRIPTION);
+
+        CompanyName name = ParserCompanyUtil.parseName(argMultimap.getValue(CliSyntax.PREFIX_NAME).get());
+        CompanyIndustry industry = ParserCompanyUtil.parseIndustry(argMultimap
+                .getValue(CliSyntax.PREFIX_INDUSTRY).get());
+        CompanyLocation location = ParserCompanyUtil.parseLocation(argMultimap
+                .getValue(CliSyntax.PREFIX_LOCATION).get());
         String description = argMultimap.getValue(CliSyntax.PREFIX_DESCRIPTION)
                 .orElseThrow(() -> new ParseException("Description is required"));
-        String website = argMultimap.getValue(CliSyntax.PREFIX_WEBSITE)
-                .orElseThrow(() -> new ParseException("Website is required"));
-        String email = argMultimap.getValue(CliSyntax.PREFIX_EMAIL)
-                .orElseThrow(() -> new ParseException("Email is required"));
-        String phone = argMultimap.getValue(CliSyntax.PREFIX_PHONE)
-                .orElseThrow(() -> new ParseException("Phone is required"));
-        String address = argMultimap.getValue(CliSyntax.PREFIX_ADDRESS)
-                .orElseThrow(() -> new ParseException("Address is required"));
+        CompanyWebsite website = ParserCompanyUtil.parseWebsite(argMultimap.getValue(CliSyntax.PREFIX_WEBSITE).get());
+        CompanyEmail email = ParserCompanyUtil.parseEmail(argMultimap.getValue(CliSyntax.PREFIX_EMAIL).get());
+        CompanyPhone phone = ParserCompanyUtil.parsePhone(argMultimap.getValue(CliSyntax.PREFIX_PHONE).get());
+        CompanyAddress address = ParserCompanyUtil.parseAddress(argMultimap.getValue(CliSyntax.PREFIX_ADDRESS).get());
 
         Company company = new Company(name, industry, location, description, website, email, phone, address);
 
