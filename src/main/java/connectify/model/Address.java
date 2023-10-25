@@ -1,14 +1,14 @@
-package connectify.model.person;
+package connectify.model;
 
 import static java.util.Objects.requireNonNull;
 
 import connectify.commons.util.AppUtil;
 
 /**
- * Represents a Person's address in the address book.
+ * Represents an address in the address book.
  * Guarantees: immutable; is valid as declared in {@link #isValidAddress(String)}
  */
-public class Address {
+public abstract class Address {
 
     public static final String MESSAGE_CONSTRAINTS = "Addresses can take any values, and it should not be blank";
 
