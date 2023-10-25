@@ -17,12 +17,12 @@ import connectify.model.tag.Tag;
 public class Person extends Entity {
 
     // Identity fields
-    private final Name name;
-    private final Phone phone;
-    private final Email email;
+    private final PersonName name;
+    private final PersonPhone personPhone;
+    private final PersonEmail personEmail;
 
     // Data fields
-    private final Address address;
+    private final PersonAddress personAddress;
     private final Set<Tag> tags = new HashSet<>();
 
     private final PersonPriority priority;
@@ -30,30 +30,47 @@ public class Person extends Entity {
     /**
      * Every field must be present and not null.
      */
-    public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags, PersonPriority priority) {
+    public Person(PersonName name, PersonPhone phone, PersonEmail email, PersonAddress address,
+                  Set<Tag> tags, PersonPriority priority) {
         CollectionUtil.requireAllNonNull(name, phone, email, address, tags, priority);
         this.name = name;
-        this.phone = phone;
-        this.email = email;
-        this.address = address;
+        this.personPhone = phone;
+        this.personEmail = email;
+        this.personAddress = address;
         this.tags.addAll(tags);
         this.priority = priority;
     }
 
-    public Name getName() {
+    /**
+     * Returns the name of the person.
+     * @return Name of person
+     */
+    public PersonName getName() {
         return name;
     }
 
-    public Phone getPhone() {
-        return phone;
+    /**
+     * Returns the phone number of the person.
+     * @return Phone number of person
+     */
+    public PersonPhone getPhone() {
+        return personPhone;
     }
 
-    public Email getEmail() {
-        return email;
+    /**
+     * Returns the email of the person.
+     * @return Email of person
+     */
+    public PersonEmail getEmail() {
+        return personEmail;
     }
 
-    public Address getAddress() {
-        return address;
+    /**
+     * Returns the address of the person.
+     * @return Address of person
+     */
+    public PersonAddress getAddress() {
+        return personAddress;
     }
 
     public PersonPriority getPriority() {
@@ -98,9 +115,9 @@ public class Person extends Entity {
 
         Person otherPerson = (Person) other;
         return name.equals(otherPerson.name)
-                && phone.equals(otherPerson.phone)
-                && email.equals(otherPerson.email)
-                && address.equals(otherPerson.address)
+                && personPhone.equals(otherPerson.personPhone)
+                && personEmail.equals(otherPerson.personEmail)
+                && personAddress.equals(otherPerson.personAddress)
                 && tags.equals(otherPerson.tags)
                 && priority.equals(otherPerson.priority);
 
@@ -109,16 +126,16 @@ public class Person extends Entity {
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, address, tags);
+        return Objects.hash(name, personPhone, personEmail, personAddress, tags);
     }
 
     @Override
     public String toString() {
         return new ToStringBuilder(this)
                 .add("name", name)
-                .add("phone", phone)
-                .add("email", email)
-                .add("address", address)
+                .add("phone", personPhone)
+                .add("email", personEmail)
+                .add("address", personAddress)
                 .add("tags", tags)
                 .add("priority", priority)
                 .toString();
