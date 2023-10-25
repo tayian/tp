@@ -1,14 +1,14 @@
-package connectify.model.person;
+package connectify.model;
 
 import static java.util.Objects.requireNonNull;
 
 import connectify.commons.util.AppUtil;
 
 /**
- * Represents a Person's email in the address book.
+ * Represents an email in the address book.
  * Guarantees: immutable; is valid as declared in {@link #isValidEmail(String)}
  */
-public class Email {
+public abstract class Email {
 
     private static final String SPECIAL_CHARACTERS = "+_.-";
     public static final String MESSAGE_CONSTRAINTS = "Emails should be of the format local-part@domain "
