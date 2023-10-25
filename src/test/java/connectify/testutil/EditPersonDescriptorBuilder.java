@@ -4,7 +4,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import connectify.logic.commands.EditCommand.EditPersonDescriptor;
+import connectify.logic.commands.EditPersonCommand.EditPersonDescriptor;
 import connectify.model.person.Person;
 import connectify.model.person.PersonAddress;
 import connectify.model.person.PersonEmail;
@@ -17,7 +17,7 @@ import connectify.model.tag.Tag;
  */
 public class EditPersonDescriptorBuilder {
 
-    private EditPersonDescriptor descriptor;
+    private final EditPersonDescriptor descriptor;
 
     public EditPersonDescriptorBuilder() {
         descriptor = new EditPersonDescriptor();
