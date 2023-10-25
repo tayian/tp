@@ -20,7 +20,8 @@ import connectify.testutil.PersonBuilder;
 import connectify.testutil.TypicalPersons;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-public class AddressBookTest {
+
+public class PersonAddressBookTest {
 
     private final AddressBook addressBook = new AddressBook();
 
