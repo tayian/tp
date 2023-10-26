@@ -7,7 +7,8 @@ Connectify is a networking platform designed to help professionals efficiently m
 * [Features](#features)
   * [Adding Contacts](#adding-contacts)
   * [Deleting Contacts](#deleting-contacts)
-  * [Listing Contacts](#listing-contacts)
+  * [Editing Contacts](#editing-people)
+  * [Listing Contacts](#listing-all-entities)
   * [Exit](#exit)
 * [FAQ](#faq)
 * [Known issues](#known-issues)
@@ -77,6 +78,49 @@ Tags: friends, owesMoney
 - If the company index provided is invalid:
   ```
   The company index provided is invalid.
+  ```
+
+#### Command: `addCompany`
+
+The **addCompany** command allows you to add new companies to your Connectify database. Follow the format below to add contacts:
+
+`addCompany n/NAME i/INDUSTRY l/LOCATION d/DESCRIPTION w/WEBSITE e/EMAIL p/PHONE a/ADDRESS`
+
+- `n/NAME`: Specify the Company name.
+- `i/INDUSTRY`: Add the industry the Company is in.
+- `l/LOCATION`: Add the city/locale Company is at.
+- `d/DESCRIPTION`: Describe the Company.
+- `w/WEBSITE`: Add the Company website.
+- `e/EMAIL`: Add the contact email of the Company.
+- `p/PHONE`: Add the phone number of the Company.
+- `a/ADDRESS`: Include the address of the Company.
+
+**Example:**
+
+To add a Company "Apple Inc", a computer and consumer technology company headquartered in Los Altos, with the website "www.apple.com", email address contact@apple.com, the phone number 98765432, address "1 Apple Park Way, Cupertino, California", use the following command:
+
+```
+addCompany n/Apple Inc i/technology l/Los Altos d/computer and consumer technology w/www.apple.com e/contact@apple.com p/98765432 a/1 Apple Park Way, Cupertino, California
+```
+
+**Successful Output:**
+
+```
+New company added: Apple Inc
+Phone: 98765432
+Email: contact@apple.com
+Address: 1 Apple Park Way, Cupertino, California
+Industry: technology
+Location: Los Altos
+Description: computer and consumer technology
+Website: www.apple.com
+```
+
+**Unsuccessful Output:**
+
+- If a person with the same details already exists in the address book:
+  ```
+  This company already exists in the address book.
   ```
 
 ### Deleting Contacts
@@ -328,9 +372,11 @@ That is not a valid command.
 
 ## Command Summary
 
-| Action           | Format, Examples              |
-|------------------|-------------------------------|
-| **AddPerson**    | `addPerson n/NAME p/PHONE e/EMAIL a/ADDRESS c/COMPANY [t/TAG]…` <br> e.g., `addPerson n/John Doe p/98765432 e/johndoe@example.com a/311, Clementi Ave 2, #02-25 c/1 t/friends t/owesMoney` |
-| **DeletePerson** | `deletePerson INDEX` <br> e.g., `delete 1` |
-| **List**         | `list`                        |
-| **Exit**         | `exit`                        |
+| Action            | Format, Examples                                                                                                                                                                                                                                                                     |
+|-------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **AddPerson**     | `addPerson n/NAME p/PHONE e/EMAIL a/ADDRESS c/COMPANY [t/TAG]…` <br> e.g., `addPerson n/John Doe p/98765432 e/johndoe@example.com a/311, Clementi Ave 2, #02-25 c/1 t/friends t/owesMoney`                                                                                           |
+| **AddCompany**    | `addCompany n/NAME i/INDUSTRY l/LOCATION d/DESCRIPTION w/WEBSITE e/EMAIL p/PHONE a/ADDRESS` <br> e.g., `addCompany n/Apple Inc i/technology l/Los Altos d/computer and consumer technology w/www.apple.com e/contact@apple.com p/98765432 a/1 Apple Park Way, Cupertino, California` |
+| **DeletePerson**  | `deletePerson INDEX` <br> e.g., `delete 1`                                                                                                                                                                                                                                           |
+| **DeleteCompany** | `deleteCompany INDEX` <br> e.g., `delete 1`                                                                                                                                                                                                                                          |
+| **List**          | `list`                                                                                                                                                                                                                                                                               |
+| **Exit**          | `exit`                                                                                                                                                                                                                                                                               |
