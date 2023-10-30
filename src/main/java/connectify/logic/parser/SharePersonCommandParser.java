@@ -1,10 +1,10 @@
 package connectify.logic.parser;
 
+import static connectify.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+
 import connectify.commons.core.index.Index;
 import connectify.logic.commands.SharePersonCommand;
 import connectify.logic.parser.exceptions.ParseException;
-
-import static connectify.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 
 /**
  * Parses a Company object into a ShareCompanyCommand for execution.
