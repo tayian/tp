@@ -103,4 +103,19 @@ public class ShareCompanyCommand extends Command {
                 .add("targetIndex", targetIndex)
                 .toString();
     }
+
+    @Override
+    public boolean equals(Object other) {
+        if (other == this) {
+            return true;
+        }
+
+        // instanceof handles nulls
+        if (!(other instanceof ShareCompanyCommand)) {
+            return false;
+        }
+
+        ShareCompanyCommand otherShareCommand = (ShareCompanyCommand) other;
+        return targetIndex.equals(otherShareCommand.targetIndex);
+    }
 }
