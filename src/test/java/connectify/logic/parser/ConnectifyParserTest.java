@@ -34,6 +34,8 @@ import connectify.logic.commands.ListCompaniesCommand;
 import connectify.logic.commands.ListPeopleCommand;
 import connectify.logic.commands.PersonNoteCommand;
 import connectify.logic.commands.RankPersonCommand;
+import connectify.logic.commands.ShareCompanyCommand;
+import connectify.logic.commands.SharePersonCommand;
 import connectify.logic.parser.exceptions.ParseException;
 import connectify.model.EntityNameContainsKeywordsPredicate;
 import connectify.model.company.Company;
@@ -134,6 +136,20 @@ public class ConnectifyParserTest {
                         +
                         " " + keywords.stream().collect(Collectors.joining(" ")));
         assertEquals(new FindCompaniesCommand(new CompanyNameContainsKeywordsPredicate(keywords)), command);
+    }
+
+    @Test
+    public void parseCommand_shareCompany() throws Exception {
+        ShareCompanyCommand command = (ShareCompanyCommand) parser.parseCommand(
+                ShareCompanyCommand.COMMAND_WORD + " " + INDEX_FIRST_COMPANY.getOneBased());
+        assertEquals(new ShareCompanyCommand(INDEX_FIRST_COMPANY), command);
+    }
+
+    @Test
+    public void parseCommand_sharePerson() throws Exception {
+        SharePersonCommand command = (SharePersonCommand) parser.parseCommand(
+                SharePersonCommand.COMMAND_WORD + " " + INDEX_FIRST_COMPANY.getOneBased());
+        assertEquals(new SharePersonCommand(INDEX_FIRST_COMPANY), command);
     }
 
     @Test
