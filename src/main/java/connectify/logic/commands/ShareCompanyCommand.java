@@ -53,7 +53,7 @@ public class ShareCompanyCommand extends Command {
 
     /**
      * Searches for Company information, and formats the output to the user.
-     * 
+     *
      * @param input Input to be formatted.
      * @return Formatted output.
      */
