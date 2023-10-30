@@ -26,6 +26,8 @@ import connectify.logic.commands.ListCompaniesCommand;
 import connectify.logic.commands.ListPeopleCommand;
 import connectify.logic.commands.PersonNoteCommand;
 import connectify.logic.commands.RankPersonCommand;
+import connectify.logic.commands.ShareCompanyCommand;
+import connectify.logic.commands.SharePersonCommand;
 import connectify.logic.parser.exceptions.ParseException;
 
 /**
@@ -94,6 +96,12 @@ public class ConnectifyParser {
 
         case FindCompaniesCommand.COMMAND_WORD:
             return new FindCompaniesCommandParser().parse(arguments);
+
+        case ShareCompanyCommand.COMMAND_WORD:
+            return new ShareCompanyCommandParser().parse(arguments);
+
+        case SharePersonCommand.COMMAND_WORD:
+            return new SharePersonCommandParser().parse(arguments);
 
         case ListCompaniesCommand.COMMAND_WORD:
             return new ListCompaniesCommand();
