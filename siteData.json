@@ -41,8 +41,8 @@
       "title": "Developer Guide",
       "headings": {
         "connectify-developer-guide": "Connectify Developer Guide",
-        "table-of-contents": "Table Of Contents",
         "introduction": "Introduction",
+        "table-of-contents": "Table Of Contents",
         "acknowledgements": "Acknowledgements",
         "setting-up-getting-started": "Setting up, getting started",
         "design": "Design",
@@ -96,10 +96,16 @@
         "seeking-help": "Seeking help",
         "saving-data": "Saving data",
         "exit": "Exit",
-        "appendix-improvements": "Appendix: Improvements",
+        "appendix-effort": "Appendix: Effort",
         "improvements-to-functional-code": "Improvements to Functional Code",
         "improvements-to-documentation": "Improvements to Documentation",
-        "challenges-overcame": "Challenges Overcame"
+        "challenges-overcame": "Challenges Overcame",
+        "appendix-planned-enhancements": "Appendix: Planned Enhancements",
+        "1-allowing-a-person-to-be-added-to-multiple-companies": "1. Allowing a Person to be Added to Multiple Companies",
+        "2-improving-user-interface-for-longer-input-data": "2. Improving User Interface for Longer Input Data",
+        "3-enhancing-user-friendly-error-messages": "3. Enhancing User-Friendly Error Messages",
+        "4-strengthening-user-input-validation": "4. Strengthening User Input Validation",
+        "5-enhancing-user-interface-for-clarity-and-intuitiveness": "5. Enhancing User Interface for Clarity and Intuitiveness"
       },
       "headingKeywords": {}
     },
