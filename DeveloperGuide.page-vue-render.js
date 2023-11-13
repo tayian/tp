@@ -1019,6 +1019,6 @@ with(this){return _c('p',[_c('strong',[_v("Problem:")]),_v("\nThe current user i
 with(this){return _c('p',[_c('strong',[_v("Proposed Solution:")]),_v("\nInvest in a comprehensive redesign of the user interface to improve clarity and intuitiveness. This involves refining navigation structures, optimizing data presentation, and incorporating user-friendly design principles. Connectify aims to provide users with an interface that is not only visually appealing but also enhances their ability to understand, interact with, and derive value from the information stored within the application.")])}
 },function anonymous(
 ) {
-with(this){return _c('footer',[_c('div',{staticClass:"text-center"},[_c('small',[_v("["),_c('span',[_c('strong',[_v("Powered by")])]),_v(" "),_c('img',{attrs:{"src":"https://markbind.org/favicon.ico","width":"30"}}),_v(" "),_c('a',{attrs:{"href":"https://markbind.org/"}},[_v("MarkBind 5.1.0")]),_v(", generated on Tue, 14 Nov 2023, 5:16:33 GMT+8]")])])])}
+with(this){return _c('footer',[_c('div',{staticClass:"text-center"},[_c('small',[_v("["),_c('span',[_c('strong',[_v("Powered by")])]),_v(" "),_c('img',{attrs:{"src":"https://markbind.org/favicon.ico","width":"30"}}),_v(" "),_c('a',{attrs:{"href":"https://markbind.org/"}},[_v("MarkBind 5.1.0")]),_v(", generated on Tue, 14 Nov 2023, 5:25:52 GMT+8]")])])])}
 }];
   
