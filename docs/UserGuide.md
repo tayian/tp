@@ -984,7 +984,7 @@ Note:
 - All fields are case-sensitive. This means that `John Doe` and `john doe` are considered different names, and `friends` and `Friends` are considered different tags.
 
 <box type="tip">
-Keep contact details up-to-date in Connectify. Be sure the check if they have changed their contact details.
+Keep contact details up-to-date in Connectify. Be sure to check if they have changed their contact details.
 </box>
 
 **Example:**
