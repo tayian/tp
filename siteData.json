@@ -152,8 +152,8 @@
         "tutorial-adding-your-first-connection": "Tutorial: Adding your first connection",
         "features": "Features",
         "components-of-a-command": "Components of a Command",
-        "how-to-read-command-formats": "How to Read Command Formats",
-        "general-input-guidelines": "General Input Guidelines",
+        "command-format-guidelines": "Command Format Guidelines",
+        "general-command-input-guidelines": "General Command Input Guidelines",
         "features-for-managing-company-details": "Features for managing company details",
         "features-for-managing-people-contact-details": "Features for managing people contact details",
         "general-commands": "General Commands",
@@ -188,6 +188,7 @@
     },
     {
       "src": "team/nrehiew.md",
+      "title": "Lim Wei Hern's Project Portfolio Page",
       "headings": {
         "project-connectify": "Project: Connectify"
       },
