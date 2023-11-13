@@ -18,7 +18,7 @@ Given below are my contributions to the project.
 * **New Feature**: Implemented `sharePerson` Command
   * Implemented the `sharePerson` command, enabling users to retrieve instructions on how to add a particular Person.
   * This feature allows users to share these people with others, allowing effective network management through creating second- and third-degree connections.
-  * Key contributions: Enhanced the platform's utility for managing relationships with other professionals.
+  * Significance: Enhanced the platform's utility for managing relationships with other professionals.
 
 * **New Feature**: Implemented `shareCompany` Command
   * Developed the `shareCompany` command, allowing users to add notes to their company contacts.
