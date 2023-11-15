@@ -41,6 +41,6 @@ with(this){return _c('li',[_c('p',[_c('strong',[_v("Community")]),_v(":")]),_v("
 with(this){return _c('li',[_c('p',[_c('strong',[_v("Tools")]),_v(":")]),_v(" "),_c('ul',[_c('li',[_c('strong',[_v("Managed SourceTree, Git, and GitHub for Version Control")]),_v(": Utilized SourceTree, Git, and GitHub for revision control and code management, ensuring efficient development workflows.")]),_v(" "),_c('li',[_c('strong',[_v("Used PlantUML for Diagram Creation")]),_v(": Utilized PlantUML to generate diagrams for the Developer Guide so that it is more visually informative.")])])])}
 },function anonymous(
 ) {
-with(this){return _c('footer',[_c('div',{staticClass:"text-center"},[_c('small',[_v("["),_c('span',[_c('strong',[_v("Powered by")])]),_v(" "),_c('img',{attrs:{"src":"https://markbind.org/favicon.ico","width":"30"}}),_v(" "),_c('a',{attrs:{"href":"https://markbind.org/"}},[_v("MarkBind 5.1.0")]),_v(", generated on Tue, 14 Nov 2023, 5:41:59 GMT+8]")])])])}
+with(this){return _c('footer',[_c('div',{staticClass:"text-center"},[_c('small',[_v("["),_c('span',[_c('strong',[_v("Powered by")])]),_v(" "),_c('img',{attrs:{"src":"https://markbind.org/favicon.ico","width":"30"}}),_v(" "),_c('a',{attrs:{"href":"https://markbind.org/"}},[_v("MarkBind 5.1.0")]),_v(", generated on Wed, 15 Nov 2023, 14:49:57 GMT+8]")])])])}
 }];
   
