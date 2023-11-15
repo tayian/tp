@@ -120,6 +120,7 @@ This developer guide describes the implementation details of Connectify. It is i
 * [Jackson](https://github.com/FasterXML/jackson) for providing the API for parsing JSON files.
 * [JUnit5](https://github.com/junit-team/junit5) for providing a unit testing framework.
 * Our application is based on the [AddressBook-Level 3 (AB-3)](https://se-education.org/addressbook-level3/). All features present in our application are in addition to those already present in AB-3.
+* The structure of our documentation is inspired in part by past projects: [PayMeLah](https://github.com/AY2223S1-CS2103T-W13-3/tp) ([UG](https://ay2223s1-cs2103t-w13-3.github.io/tp/UserGuide.html) and [DG](https://ay2223s1-cs2103t-w13-3.github.io/tp/DeveloperGuide.html)) and [TruthTable](https://github.com/AY2223S1-CS2103T-W13-4/tp) ([UG](https://ay2223s1-cs2103t-w13-4.github.io/tp/UserGuide.html) and [DG](https://ay2223s1-cs2103t-w13-4.github.io/tp/DeveloperGuide.html)) and [Docedex](https://github.com/AY2223S2-CS2103T-F12-1/tp) ([UG](https://ay2223s2-cs2103t-f12-1.github.io/tp/UserGuide.html) and [DG](https://ay2223s2-cs2103t-f12-1.github.io/tp/DeveloperGuide.html)). However, our features and implementations are new.
 
 --------------------------------------------------------------------------------------------------------------------
 
